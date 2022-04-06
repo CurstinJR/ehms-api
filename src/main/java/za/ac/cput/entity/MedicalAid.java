@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * MedicalAidTest.java
+ * MedicalAid.java
  * Author: Curstin Rose - 220275408
  * Date: 6 April 2022
  */
