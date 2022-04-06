@@ -8,6 +8,11 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * BillTest.java
+ * Author: Curstin Rose - 220275408
+ * Date: 6 April 2022
+ */
 class BillTest
 {
     Bill bill1;
