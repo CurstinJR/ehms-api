@@ -38,10 +38,11 @@ class MedicalAidTest
     @Test
     public void medicalAidBuilderTest_shouldEqual()
     {
-        MedicalAid medicalAid1Copy = new MedicalAid.Builder()
-                .copy(medicalAid1);
+        medicalAid2 = new MedicalAid.Builder()
+                .copy(medicalAid1)
+                .build();
 
-        assertEquals(medicalAid1, medicalAid1Copy);
+        assertEquals(medicalAid1, medicalAid2);
     }
 
     @Test
@@ -53,10 +54,9 @@ class MedicalAidTest
     @Test
     public void medicalAidBuilderTest_shouldBeSame()
     {
-        MedicalAid medicalAid1Copy = new MedicalAid.Builder()
-                .copy(medicalAid1);
+        medicalAid2 = medicalAid1;
 
-        assertSame(medicalAid1, medicalAid1Copy);
+        assertSame(medicalAid1, medicalAid2);
     }
 
     @Test
@@ -87,9 +87,10 @@ class MedicalAidTest
     @Test
     public void medicalAidBuilderTest_shouldEqualHash()
     {
-        MedicalAid medicalAid1Copy = new MedicalAid.Builder()
-                .copy(medicalAid1);
+        medicalAid2 = new MedicalAid.Builder()
+                .copy(medicalAid1)
+                .build();
 
-        assertEquals(medicalAid1, medicalAid1Copy);
+        assertEquals(medicalAid1, medicalAid2);
     }
 }

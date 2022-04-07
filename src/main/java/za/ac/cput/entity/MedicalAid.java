@@ -127,7 +127,7 @@ public class MedicalAid
             return this;
         }
 
-        public MedicalAid copy(MedicalAid medicalAid)
+        public Builder copy(MedicalAid medicalAid)
         {
             this.claimId = medicalAid.claimId;
             this.claimDate = medicalAid.claimDate;
@@ -135,7 +135,7 @@ public class MedicalAid
             this.medicalAidName = medicalAid.medicalAidName;
             this.medicalAidNo = medicalAid.medicalAidNo;
 
-            return medicalAid;
+            return this;
         }
 
         public MedicalAid build()
