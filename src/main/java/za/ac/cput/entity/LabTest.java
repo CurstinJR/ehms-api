@@ -14,6 +14,12 @@ public class LabTest {
     private Date testSampleDate;
     private BigDecimal testFee;
 
+    private LabTest(Builder builder) {
+        this.testId = builder.testId;
+        this.test = builder.test;
+        this.testSampleDate = builder.testSampleDate;
+        this.testFee = builder.testFee;
+    }
     public long getTestId() {
         return testId;
     }
@@ -54,5 +60,38 @@ public class LabTest {
                 ", testSampleDate=" + testSampleDate +
                 ", testFee=" + testFee +
                 '}';
+    }
+    public static class Builder {
+        private long testId;
+        private String test;
+        private Date testSampleDate;
+        private BigDecimal testFee;
+
+        public Builder TestId(long testId) {
+            this.testId = testId;
+            return this;
+        }
+        public Builder Test(String test) {
+            this.test = test;
+            return this;
+        }
+        public Builder TestSampleDate(Date testSampleDate) {
+            this.testSampleDate = testSampleDate;
+            return this;
+        }
+        public Builder TestFee(BigDecimal testFee) {
+            this.testFee = testFee;
+            return this;
+        }
+        public Builder copy(LabTest lbt) {
+            this.testId = lbt.testId;
+            this.test = lbt.test;
+            this.testSampleDate = lbt.testSampleDate;
+            this.testFee = lbt.testFee;
+            return this;
+        }
+        public LabTest build() {
+            return new LabTest(this);
+        }
     }
 }
