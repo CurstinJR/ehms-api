@@ -11,6 +11,12 @@ public class Employee {
     private String employeeName;
     private String employeeSurname;
 
+    private Employee(Builder builder){
+        this.employeeId = builder.employeeId;
+        this.employeeName = builder.employeeName;
+        this.employeeSurname = builder.employeeSurname;
+    }
+
     public Long getEmployeeId() {
         return employeeId;
     }
@@ -44,4 +50,37 @@ public class Employee {
                 '}';
     }
 
+
+    public static class Builder{
+        private Long employeeId;
+        private String employeeName;
+        private String employeeSurname;
+
+        public Builder setEmployeeId(Long employeeId) {
+            this.employeeId = employeeId;
+            return this;
+        }
+
+        public Builder setEmployeeId(String employeeName) {
+            this.employeeName = employeeName;
+            return this;
+        }
+
+        public Builder setEmployeeSurname(String employeeSurname) {
+            this.employeeSurname = employeeSurname;
+            return this;
+        }
+
+        public Builder copy(Employee employee){
+            this.employeeId = employee.employeeId;
+            this.employeeName = employee.employeeName;
+            this.employeeSurname = employee.employeeSurname;
+            return this;
+        }
+
+        public Employee build(){
+            return new Employee(this);
+
+        }
+    }
 }
