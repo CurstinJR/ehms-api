@@ -7,7 +7,11 @@ public class LoginCredentials {
     public long getId() {
         return id;
     }
-
+    private LoginCredentials(Builder builder) {
+        this.id = builder.id;
+        this.email = builder.email;
+        this.password = builder.password;
+    }
     public String getEmail() {
         return email;
     }
@@ -35,4 +39,35 @@ public class LoginCredentials {
                 ", password='" + password + '\'' +
                 '}';
     }
+    public static class Builder {
+        private long id;
+        private String email;
+        private String password;
+
+        public Builder setId(long id) {
+            this.id = id;
+            return this;
+        }
+        public Builder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+        public Builder setPassword(String password) {
+            this.password = password;
+            return this;
+        }
+        public Builder copy(LoginCredentials log){
+            this.id = log.id;
+            this.email = log.email;
+            this.password = log.password;
+            return this;
+
+        }
+
+        public LoginCredentials build() {
+            return new LoginCredentials(this);
+        }
+
+    }
 }
+
