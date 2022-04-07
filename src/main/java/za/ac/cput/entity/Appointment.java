@@ -57,17 +57,17 @@ public class Appointment {
         private String appointmentTime;
         private LocalDate appointmentDate;
 
-        public Builder AppointmentId(Long appointmentId) {
+        public Builder appointmentId(Long appointmentId) {
             this.appointmentId = appointmentId;
             return this;
         }
 
-        public Builder AppointmentTime(String appointmentTime) {
+        public Builder appointmentTime(String appointmentTime) {
             this.appointmentTime = appointmentTime;
             return this;
         }
 
-        public Builder AppointmentDate(LocalDate appointmentDate) {
+        public Builder appointmentDate(LocalDate appointmentDate) {
             this.appointmentDate = appointmentDate;
             return this;
         }
