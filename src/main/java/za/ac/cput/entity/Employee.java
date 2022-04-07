@@ -56,17 +56,17 @@ public class Employee {
         private String employeeName;
         private String employeeSurname;
 
-        public Builder setEmployeeId(Long employeeId) {
+        public Builder EmployeeId(Long employeeId) {
             this.employeeId = employeeId;
             return this;
         }
 
-        public Builder setEmployeeId(String employeeName) {
+        public Builder EmployeeName(String employeeName) {
             this.employeeName = employeeName;
             return this;
         }
 
-        public Builder setEmployeeSurname(String employeeSurname) {
+        public Builder EmployeeSurname(String employeeSurname) {
             this.employeeSurname = employeeSurname;
             return this;
         }

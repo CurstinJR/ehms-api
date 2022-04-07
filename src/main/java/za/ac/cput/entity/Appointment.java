@@ -1,6 +1,6 @@
 package za.ac.cput.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /*
 Appointment.java
@@ -11,7 +11,7 @@ Date: 6 April 2022
 public class Appointment {
     private Long appointmentId;
     private String appointmentTime;
-    private Date appointmentDate;
+    private LocalDate appointmentDate;
 
     private Appointment(Builder builder){
         this.appointmentId = builder.appointmentId;
@@ -27,7 +27,7 @@ public class Appointment {
         return appointmentTime;
     }
 
-    public Date getAppointmentDate() {
+    public LocalDate getAppointmentDate() {
         return appointmentDate;
     }
 
@@ -39,7 +39,7 @@ public class Appointment {
         this.appointmentTime = appointmentTime;
     }
 
-    public void setAppointmentDate(Date appointmentDate) {
+    public void setAppointmentDate(LocalDate appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 
@@ -55,19 +55,19 @@ public class Appointment {
     public static class Builder{
         private Long appointmentId;
         private String appointmentTime;
-        private Date appointmentDate;
+        private LocalDate appointmentDate;
 
-        public Builder setAppointmentId(Long appointmentId) {
+        public Builder AppointmentId(Long appointmentId) {
             this.appointmentId = appointmentId;
             return this;
         }
 
-        public Builder setAppointmentTime(String appointmentTime) {
+        public Builder AppointmentTime(String appointmentTime) {
             this.appointmentTime = appointmentTime;
             return this;
         }
 
-        public Builder setAppointmentDate(Date appointmentDate) {
+        public Builder AppointmentDate(LocalDate appointmentDate) {
             this.appointmentDate = appointmentDate;
             return this;
         }
