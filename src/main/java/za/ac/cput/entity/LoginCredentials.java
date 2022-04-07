@@ -1,5 +1,9 @@
 package za.ac.cput.entity;
-
+/*
+LoginCredentials.java
+Author:Kevin Lionel Mombo Ndinga(218180500)
+Date: 07 April 2022
+*/
 public class LoginCredentials {
     private long id;
     private String email;
