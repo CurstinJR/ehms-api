@@ -48,15 +48,15 @@ public class LoginCredentials {
         private String email;
         private String password;
 
-        public Builder Id(long id) {
+        public Builder id(long id) {
             this.id = id;
             return this;
         }
-        public Builder Email(String email) {
+        public Builder email(String email) {
             this.email = email;
             return this;
         }
-        public Builder Password(String password) {
+        public Builder password(String password) {
             this.password = password;
             return this;
         }
