@@ -29,4 +29,30 @@ public class LabTest {
     public BigDecimal getTestFee() {
         return testFee;
     }
+
+    public void setTestId(long testId) {
+        this.testId = testId;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
+    public void setTestSampleDate(Date testSampleDate) {
+        this.testSampleDate = testSampleDate;
+    }
+
+    public void setTestFee(BigDecimal testFee) {
+        this.testFee = testFee;
+    }
+
+    @Override
+    public String toString() {
+        return "LabTest{" +
+                "testId=" + testId +
+                ", test='" + test + '\'' +
+                ", testSampleDate=" + testSampleDate +
+                ", testFee=" + testFee +
+                '}';
+    }
 }
