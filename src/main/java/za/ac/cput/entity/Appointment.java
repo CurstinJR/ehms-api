@@ -13,6 +13,12 @@ public class Appointment {
     private String appointmentTime;
     private Date appointmentDate;
 
+    private Appointment(Builder builder){
+        this.appointmentId = builder.appointmentId;
+        this.appointmentTime = builder.appointmentTime;
+        this.appointmentDate = builder.appointmentDate;
+    }
+
     public Long getAppointmentId() {
         return appointmentId;
     }
@@ -44,5 +50,37 @@ public class Appointment {
                 ", appointmentTime='" + appointmentTime + '\'' +
                 ", appointmentDate=" + appointmentDate +
                 '}';
+    }
+
+    public static class Builder{
+        private Long appointmentId;
+        private String appointmentTime;
+        private Date appointmentDate;
+
+        public Builder setAppointmentId(Long appointmentId) {
+            this.appointmentId = appointmentId;
+            return this;
+        }
+
+        public Builder setAppointmentTime(String appointmentTime) {
+            this.appointmentTime = appointmentTime;
+            return this;
+        }
+
+        public Builder setAppointmentDate(Date appointmentDate) {
+            this.appointmentDate = appointmentDate;
+            return this;
+        }
+
+        public Builder copy(Appointment appointment){
+            this.appointmentId = appointment.appointmentId;
+            this.appointmentTime = appointment.appointmentTime;
+            this.appointmentDate = appointment.appointmentDate;
+            return this;
+        }
+
+        public Appointment build(){
+            return new Appointment(this);
+        }
     }
 }
