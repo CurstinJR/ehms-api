@@ -2,22 +2,22 @@ package za.ac.cput.entity;
 
 import java.util.Objects;
 
-/*
-Patient.java
-Author: Curstin Rose - 220275408
-Date: 5 April 2022
+/**
+ * Patient.java
+ * Author: Curstin Rose - 220275408
+ * Date: 5 April 2022
  */
 public class Patient
 {
     private final Long patientId;
-    private final String patientFirstName;
-    private final String patientLastname;
+    private final String patientName;
+    private final String patientSurname;
 
     public Patient(Builder builder)
     {
         this.patientId = builder.patientId;
-        this.patientFirstName = builder.patientFirstName;
-        this.patientLastname = builder.patientLastname;
+        this.patientName = builder.patientName;
+        this.patientSurname = builder.patientSurname;
     }
 
     public Long getPatientId()
@@ -25,14 +25,14 @@ public class Patient
         return patientId;
     }
 
-    public String getPatientFirstName()
+    public String getPatientName()
     {
-        return patientFirstName;
+        return patientName;
     }
 
-    public String getPatientLastname()
+    public String getPatientSurname()
     {
-        return patientLastname;
+        return patientSurname;
     }
 
     @Override
@@ -44,17 +44,17 @@ public class Patient
         Patient patient = (Patient) o;
 
         if (!Objects.equals(patientId, patient.patientId)) return false;
-        if (!Objects.equals(patientFirstName, patient.patientFirstName))
+        if (!Objects.equals(patientName, patient.patientName))
             return false;
-        return Objects.equals(patientLastname, patient.patientLastname);
+        return Objects.equals(patientSurname, patient.patientSurname);
     }
 
     @Override
     public int hashCode()
     {
         int result = patientId != null ? patientId.hashCode() : 0;
-        result = 31 * result + (patientFirstName != null ? patientFirstName.hashCode() : 0);
-        result = 31 * result + (patientLastname != null ? patientLastname.hashCode() : 0);
+        result = 31 * result + (patientName != null ? patientName.hashCode() : 0);
+        result = 31 * result + (patientSurname != null ? patientSurname.hashCode() : 0);
         return result;
     }
 
@@ -63,16 +63,16 @@ public class Patient
     {
         return "Patient{" +
                 "patientId=" + patientId +
-                ", patientFirstName='" + patientFirstName + '\'' +
-                ", patientLastname='" + patientLastname + '\'' +
+                ", patientName='" + patientName + '\'' +
+                ", patientSurname='" + patientSurname + '\'' +
                 '}';
     }
 
     public static class Builder
     {
         private Long patientId;
-        private String patientFirstName;
-        private String patientLastname;
+        private String patientName;
+        private String patientSurname;
 
         public Builder patientId(Long patientId)
         {
@@ -80,25 +80,25 @@ public class Patient
             return this;
         }
 
-        public Builder patientFirstName(String patientFirstName)
+        public Builder patientName(String patientName)
         {
-            this.patientFirstName = patientFirstName;
+            this.patientName = patientName;
             return this;
         }
 
-        public Builder patientLastname(String patientLastname)
+        public Builder patientSurname(String patientSurname)
         {
-            this.patientLastname = patientLastname;
+            this.patientSurname = patientSurname;
             return this;
         }
 
-        public Patient copy(Patient patient)
+        public Builder copy(Patient patient)
         {
             this.patientId = patient.patientId;
-            this.patientFirstName = patient.patientFirstName;
-            this.patientLastname = patient.patientLastname;
+            this.patientName = patient.patientName;
+            this.patientSurname = patient.patientSurname;
 
-            return patient;
+            return this;
         }
 
         public Patient build()
