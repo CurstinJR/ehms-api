@@ -11,7 +11,7 @@ import java.util.Date;
 public class LabTest {
     private long testId;
     private String testName;
-    private Date testSampleDate;
+    private LocalDate testSampleDate;
     private BigDecimal testFee;
 
     private LabTest(Builder builder) {
