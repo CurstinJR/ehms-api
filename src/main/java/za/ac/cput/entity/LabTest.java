@@ -10,13 +10,13 @@ import java.util.Date;
 
 public class LabTest {
     private long testId;
-    private String test;
+    private String testName;
     private Date testSampleDate;
     private BigDecimal testFee;
 
     private LabTest(Builder builder) {
         this.testId = builder.testId;
-        this.test = builder.test;
+        this.testName = builder.testName;
         this.testSampleDate = builder.testSampleDate;
         this.testFee = builder.testFee;
     }
@@ -25,7 +25,7 @@ public class LabTest {
     }
 
     public String getTest() {
-        return test;
+        return testName;
     }
 
     public Date getTestSampleDate() {
@@ -40,8 +40,8 @@ public class LabTest {
         this.testId = testId;
     }
 
-    public void setTest(String test) {
-        this.test = test;
+    public void setTestName(String testName) {
+        this.testName = testName;
     }
 
     public void setTestSampleDate(Date testSampleDate) {
@@ -56,36 +56,36 @@ public class LabTest {
     public String toString() {
         return "LabTest{" +
                 "testId=" + testId +
-                ", test='" + test + '\'' +
+                ", testName='" + testName + '\'' +
                 ", testSampleDate=" + testSampleDate +
                 ", testFee=" + testFee +
                 '}';
     }
     public static class Builder {
         private long testId;
-        private String test;
+        private String testName;
         private Date testSampleDate;
         private BigDecimal testFee;
 
-        public Builder TestId(long testId) {
+        public Builder testId(long testId) {
             this.testId = testId;
             return this;
         }
-        public Builder Test(String test) {
-            this.test = test;
+        public Builder testName(String testName) {
+            this.testName = testName;
             return this;
         }
-        public Builder TestSampleDate(Date testSampleDate) {
+        public Builder testSampleDate(Date testSampleDate) {
             this.testSampleDate = testSampleDate;
             return this;
         }
-        public Builder TestFee(BigDecimal testFee) {
+        public Builder testFee(BigDecimal testFee) {
             this.testFee = testFee;
             return this;
         }
         public Builder copy(LabTest lbt) {
             this.testId = lbt.testId;
-            this.test = lbt.test;
+            this.testName = lbt.testName;
             this.testSampleDate = lbt.testSampleDate;
             this.testFee = lbt.testFee;
             return this;
