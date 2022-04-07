@@ -111,14 +111,14 @@ public class Bill
             return this;
         }
 
-        public Bill copy(Bill bill)
+        public Builder copy(Bill bill)
         {
             this.billId = bill.billId;
             this.billAmount = bill.billAmount;
             this.billDescription = bill.billDescription;
             this.billDate = bill.billDate;
 
-            return bill;
+            return this;
         }
 
         public Bill build()

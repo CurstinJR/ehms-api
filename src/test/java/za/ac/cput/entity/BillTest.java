@@ -39,10 +39,11 @@ class BillTest
     @Test
     public void billBuilderTest_shouldEqual()
     {
-        Bill bill1Copy = new Bill.Builder()
-                .copy(bill1);
+        bill2 = new Bill.Builder()
+                .copy(bill1)
+                .build();
 
-        assertEquals(bill1, bill1Copy);
+        assertEquals(bill1, bill2);
     }
 
     @Test
@@ -54,15 +55,17 @@ class BillTest
     @Test
     public void patientBuilderTest_shouldBeSame()
     {
-        Bill bill1Copy = new Bill.Builder()
-                .copy(bill1);
-
-        assertSame(bill1, bill1Copy);
+        bill2 = bill1;
+        assertSame(bill1, bill2);
     }
 
     @Test
     public void patientBuilderTest_shouldNotBeSame()
     {
+        bill2 = new Bill.Builder()
+                .copy(bill1)
+                .build();
+
         assertNotSame(bill1, bill2);
     }
 
@@ -86,9 +89,10 @@ class BillTest
     @Test
     public void patientBuilderTest_shouldEqualHash()
     {
-        Bill bill1Copy = new Bill.Builder()
-                .copy(bill1);
+        bill2 = new Bill.Builder()
+                .copy(bill1)
+                .build();
 
-        assertEquals(bill1, bill1Copy);
+        assertEquals(bill1, bill2);
     }
 }
