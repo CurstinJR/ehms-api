@@ -6,12 +6,12 @@ Date: 07 April 2022
 */
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class LabTest {
     private long testId;
     private String testName;
-    private Date testSampleDate;
+    private LocalDate testSampleDate;
     private BigDecimal testFee;
 
     private LabTest(Builder builder) {
@@ -28,7 +28,7 @@ public class LabTest {
         return testName;
     }
 
-    public Date getTestSampleDate() {
+    public LocalDate getTestSampleDate() {
         return testSampleDate;
     }
 
@@ -44,7 +44,7 @@ public class LabTest {
         this.testName = testName;
     }
 
-    public void setTestSampleDate(Date testSampleDate) {
+    public void setTestSampleDate(LocalDate testSampleDate) {
         this.testSampleDate = testSampleDate;
     }
 
@@ -64,7 +64,7 @@ public class LabTest {
     public static class Builder {
         private long testId;
         private String testName;
-        private Date testSampleDate;
+        private LocalDate testSampleDate;
         private BigDecimal testFee;
 
         public Builder testId(long testId) {
@@ -75,7 +75,7 @@ public class LabTest {
             this.testName = testName;
             return this;
         }
-        public Builder testSampleDate(Date testSampleDate) {
+        public Builder testSampleDate(LocalDate testSampleDate) {
             this.testSampleDate = testSampleDate;
             return this;
         }
