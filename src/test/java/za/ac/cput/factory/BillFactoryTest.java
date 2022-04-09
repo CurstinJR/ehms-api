@@ -6,11 +6,15 @@ import za.ac.cput.entity.Bill;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ * BillFactoryTest.java
+ * Author: Curstin Rose - 220275408
+ * Date: 9 April 2022
+ */
 class BillFactoryTest
 {
-
     @Test
     void createBillTest()
     {

@@ -5,8 +5,13 @@ import za.ac.cput.entity.MedicalAid;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ * MedicalAidFactoryTest.java
+ * Author: Curstin Rose - 220275408
+ * Date: 9 April 2022
+ */
 class MedicalAidFactoryTest
 {
     @Test

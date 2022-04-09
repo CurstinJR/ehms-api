@@ -5,6 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * PatientTest.java
+ * Author: Curstin Rose - 220275408
+ * Date: 6 April 2022
+ */
 class PatientTest
 {
     Patient patientZero;

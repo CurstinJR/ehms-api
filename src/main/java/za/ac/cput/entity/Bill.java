@@ -11,10 +11,10 @@ import java.util.Objects;
  */
 public class Bill
 {
-    private final Long billId;
-    private final BigDecimal billAmount;
-    private final String billDescription;
-    private final LocalDate billDate;
+    private Long billId;
+    private BigDecimal billAmount;
+    private String billDescription;
+    private LocalDate billDate;
 
     public Bill(Builder builder)
     {
@@ -42,6 +42,26 @@ public class Bill
     public LocalDate getBillDate()
     {
         return billDate;
+    }
+
+    public void setBillId(Long billId)
+    {
+        this.billId = billId;
+    }
+
+    public void setBillAmount(BigDecimal billAmount)
+    {
+        this.billAmount = billAmount;
+    }
+
+    public void setBillDescription(String billDescription)
+    {
+        this.billDescription = billDescription;
+    }
+
+    public void setBillDate(LocalDate billDate)
+    {
+        this.billDate = billDate;
     }
 
     @Override

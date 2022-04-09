@@ -10,11 +10,11 @@ import java.util.Objects;
  */
 public class MedicalAid
 {
-    private final Long claimId;
-    private final LocalDate claimDate;
-    private final String claimType;
-    private final String medicalAidName;
-    private final Long medicalAidNo;
+    private Long claimId;
+    private LocalDate claimDate;
+    private String claimType;
+    private String medicalAidName;
+    private Long medicalAidNo;
 
     public MedicalAid(Builder builder)
     {
@@ -48,6 +48,31 @@ public class MedicalAid
     public Long getMedicalAidNo()
     {
         return medicalAidNo;
+    }
+
+    public void setClaimId(Long claimId)
+    {
+        this.claimId = claimId;
+    }
+
+    public void setClaimDate(LocalDate claimDate)
+    {
+        this.claimDate = claimDate;
+    }
+
+    public void setClaimType(String claimType)
+    {
+        this.claimType = claimType;
+    }
+
+    public void setMedicalAidName(String medicalAidName)
+    {
+        this.medicalAidName = medicalAidName;
+    }
+
+    public void setMedicalAidNo(Long medicalAidNo)
+    {
+        this.medicalAidNo = medicalAidNo;
     }
 
     @Override

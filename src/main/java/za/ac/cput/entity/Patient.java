@@ -9,9 +9,9 @@ import java.util.Objects;
  */
 public class Patient
 {
-    private final Long patientId;
-    private final String patientName;
-    private final String patientSurname;
+    private Long patientId;
+    private String patientName;
+    private String patientSurname;
 
     public Patient(Builder builder)
     {
@@ -33,6 +33,21 @@ public class Patient
     public String getPatientSurname()
     {
         return patientSurname;
+    }
+
+    public void setPatientId(Long patientId)
+    {
+        this.patientId = patientId;
+    }
+
+    public void setPatientName(String patientName)
+    {
+        this.patientName = patientName;
+    }
+
+    public void setPatientSurname(String patientSurname)
+    {
+        this.patientSurname = patientSurname;
     }
 
     @Override
