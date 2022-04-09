@@ -25,9 +25,7 @@ public class Employee {
         return employeeName;
     }
 
-    public String getEmployeeSurname() {
-        return employeeSurname;
-    }
+    public String getEmployeeSurname() {return employeeSurname;}
 
     public void setEmployeeId(Long employeeId) {
         this.employeeId = employeeId;
@@ -49,7 +47,6 @@ public class Employee {
                 ", employeeSurname='" + employeeSurname + '\'' +
                 '}';
     }
-
 
     public static class Builder{
         private Long employeeId;
