@@ -1,0 +1,23 @@
+package za.ac.cput.factory;
+
+import org.junit.jupiter.api.Test;
+import za.ac.cput.entity.MedicalAid;
+
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class MedicalAidFactoryTest
+{
+    @Test
+    void createMedicalAidTest()
+    {
+        MedicalAid medicalAid = MedicalAidFactory.createMedicalAid(1L,
+                "cashless",
+                LocalDate.of(2022, 5, 16),
+                1234_4567_8901_2345L,
+                "Bonitas");
+
+        assertNotNull(medicalAid);
+    }
+}
