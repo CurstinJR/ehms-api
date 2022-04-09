@@ -1,4 +1,5 @@
 package za.ac.cput;
+
 /*
 ADP3: Assignment 1
 Authors:
@@ -8,10 +9,10 @@ Authors:
     Ngonidzashe Erica Chipato - 218327315
     Tarren-Marc Adams - 214041794
  */
-public class App 
+public class App
 {
-    public static void main( String[] args )
+    public static void main(String[] args)
     {
-        System.out.println( "ADP3 Assignment 1" );
+        System.out.println("ADP3 Assignment 1");
     }
 }

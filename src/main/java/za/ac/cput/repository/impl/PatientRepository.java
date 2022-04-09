@@ -1,50 +1,78 @@
 package za.ac.cput.repository.impl;
 
 import za.ac.cput.entity.Patient;
-import za.ac.cput.repository.IRepository;
 
-import java.util.Optional;
+import java.util.*;
 
-/*
-IRepository.java
-Author: Curstin Rose - 220275408
-Date: 5 April 2022
+/**
+ * PatientRepository.java
+ * Author: Curstin Rose - 220275408
+ * Date: 5 April 2022
  */
-public class PatientRepository implements IRepository<Patient, Long>
+public class PatientRepository implements IPatientRepository
 {
-    @Override
-    public Patient save(Patient entity)
+    private static PatientRepository patientRepository = null;
+
+    private Collection<Patient> patientDB = null;
+
+    private PatientRepository()
     {
-        return null;
+        patientDB = new ArrayList<>();
+    }
+
+    public static final PatientRepository getPatientRepository()
+    {
+        return patientRepository == null ?
+                patientRepository = new PatientRepository() :
+                patientRepository;
     }
 
     @Override
-    public Optional<Patient> findById(Long id)
+    public Patient save(Patient patient)
     {
-        return Optional.empty();
+        patientDB.add(patient);
+        return patient;
     }
 
     @Override
-    public Iterable<Patient> findAll()
+    public Optional<Patient> findById(Long patientId)
     {
-        return null;
+        Patient patient = patientDB.stream()
+                .filter(p -> p.getPatientId().equals(patientId))
+                .findFirst()
+                .orElse(null);
+
+        return Optional.ofNullable(patient);
     }
 
     @Override
-    public Patient update(Patient entity, Long aLong)
+    public Collection<Patient> findAll()
     {
-        return null;
+        return patientDB;
     }
 
     @Override
-    public void delete(Patient entity)
+    public Patient update(Patient patient)
     {
+        Long patientId = patient.getPatientId();
+        Patient oldPatient = findById(patientId).orElseThrow();
+        patientDB.remove(oldPatient);
+        patientDB.add(patient);
 
+        return patient;
     }
 
     @Override
-    public boolean existsById(Long id)
+    public boolean deleteById(Long patientId)
     {
-        return false;
+        Patient patient = patientRepository.findById(patientId).orElseThrow();
+        return patientDB.remove(patient);
+    }
+
+    @Override
+    public boolean existsById(Long patientId)
+    {
+        return patientDB.stream()
+                .anyMatch(patient -> patient.getPatientId().equals(patientId));
     }
 }
