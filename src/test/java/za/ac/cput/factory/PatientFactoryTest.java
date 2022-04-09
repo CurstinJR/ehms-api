@@ -10,7 +10,7 @@ class PatientFactoryTest
     @Test
     void createPatientFactoryTest()
     {
-        Patient patient = PatientFactory.createPatient(1L, "Patient", "Zero");
+        Patient patient = PatientFactory.createPatient("Patient", "Zero");
 
         assertNotNull(patient);
     }

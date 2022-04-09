@@ -12,8 +12,7 @@ class MedicalAidFactoryTest
     @Test
     void createMedicalAidTest()
     {
-        MedicalAid medicalAid = MedicalAidFactory.createMedicalAid(1L,
-                "cashless",
+        MedicalAid medicalAid = MedicalAidFactory.createMedicalAid("cashless",
                 LocalDate.of(2022, 5, 16),
                 1234_4567_8901_2345L,
                 "Bonitas");
