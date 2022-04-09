@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.Employee;
-import za.ac.cput.entity.LoginCredentials;
 
 /*
 Appointment.java

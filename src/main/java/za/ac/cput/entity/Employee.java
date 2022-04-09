@@ -39,8 +39,6 @@ public class Employee {
         this.employeeSurname = employeeSurname;
     }
 
-
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -54,8 +52,6 @@ public class Employee {
         private Long employeeId;
         private String employeeName;
         private String employeeSurname;
-        private LoginCredentials email;
-
 
         public Builder employeeId(Long employeeId) {
             this.employeeId = employeeId;
