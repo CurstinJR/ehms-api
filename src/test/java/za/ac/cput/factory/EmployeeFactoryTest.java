@@ -6,6 +6,12 @@ import za.ac.cput.entity.Employee;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+Appointment.java
+Author: Tarren-Marc Adams - 214041794
+Date: 9 April 2022
+ */
+
 class EmployeeFactoryTest {
 
     @Test

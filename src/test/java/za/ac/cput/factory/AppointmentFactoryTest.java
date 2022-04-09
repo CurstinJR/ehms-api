@@ -6,6 +6,12 @@ import za.ac.cput.entity.Appointment;
 
 import java.time.LocalDate;
 
+/*
+Appointment.java
+Author: Tarren-Marc Adams - 214041794
+Date:  April 2022
+ */
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppointmentFactoryTest {
