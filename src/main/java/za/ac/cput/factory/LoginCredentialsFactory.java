@@ -1,8 +1,9 @@
 package za.ac.cput.factory;
+
 /*
 LoginCredentialsFactory.java
 Author:Kevin Lionel Mombo Ndinga(218180500)
-Date: 08 April 2022
+Date: 09 April 2022
 */
 import za.ac.cput.entity.LoginCredentials;
 import za.ac.cput.util.Helper;
