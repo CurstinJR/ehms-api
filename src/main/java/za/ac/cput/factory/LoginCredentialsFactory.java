@@ -1,10 +1,21 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.LoginCredentials;
+import za.ac.cput.util.Helper;
 
 public class LoginCredentialsFactory {
 
     public static LoginCredentials createLogin(long id, String email, String password) {
+        if(Helper.isNull(id))
+            return null;
+       if(!Helper.isValidEmail(email))
+           return null;
+        if(Helper.isNullorEmpty(password))
+            return null;
 
+        return new LoginCredentials.Builder().id(id)
+                .email(email)
+                .password(password)
+                .build();
     }
 }
