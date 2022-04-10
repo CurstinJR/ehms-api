@@ -1,13 +1,12 @@
 package za.ac.cput.factory;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.Employee;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
-Appointment.java
+EmpoyeeFactoryTest.java
 Author: Tarren-Marc Adams - 214041794
 Date: 9 April 2022
  */

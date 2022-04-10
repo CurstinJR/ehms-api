@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.App;
 import za.ac.cput.entity.Appointment;
 
 import java.time.LocalDate;
@@ -13,6 +12,12 @@ Date:  April 2022
  */
 
 import static org.junit.jupiter.api.Assertions.*;
+
+/*
+AppointmentFactoryTest.java
+Author: Tarren-Marc Adams - 214041794
+Date: 9 April 2022
+ */
 
 class AppointmentFactoryTest {
 

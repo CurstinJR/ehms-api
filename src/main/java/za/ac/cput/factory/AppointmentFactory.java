@@ -6,7 +6,7 @@ import za.ac.cput.util.Helper;
 import java.time.LocalDate;
 
 /*
-Appointment.java
+AppointmentFactory.java
 Author: Tarren-Marc Adams - 214041794
 Date: 9 April 2022
  */

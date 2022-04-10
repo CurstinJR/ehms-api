@@ -4,7 +4,7 @@ import za.ac.cput.entity.Employee;
 import za.ac.cput.util.Helper;
 
 /*
-Appointment.java
+EmployeeFactory.java
 Author: Tarren-Marc Adams - 214041794
 Date: 9 April 2022
  */
