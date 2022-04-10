@@ -21,7 +21,7 @@ We propose an E-Health Management System that will provide an efficient solution
 
 ### UML Class Diagram
 
-![uml-class-diagram-e-hms](https://github.com/CurstinJR/E-HMS/blob/master/docs/E-HMS-UML-Class-Diagram.png)
+![uml-class-diagram-e-hms](https://github.com/CurstinJR/E-HMS/blob/master/docs/E-HMS%20UML%20Class%20Diagram-2.png)
 
 ## Authors
 
