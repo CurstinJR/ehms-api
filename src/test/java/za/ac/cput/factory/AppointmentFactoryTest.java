@@ -40,8 +40,8 @@ class AppointmentFactoryTest {
 
     @Test
     void testIdentity(){
-        Appointment appointment1 = AppointmentFactory.createApppointment("14:00", LocalDate.of(2022,03,12));
-        Appointment appointment2 = AppointmentFactory.createApppointment("14:00", LocalDate.of(2022,04,1));
+        Appointment appointment1 = AppointmentFactory.createApppointment("14:00", LocalDate.of(2022,3,12));
+        Appointment appointment2 = AppointmentFactory.createApppointment("15:00", LocalDate.of(2022,4,1));
         Appointment appointment3 = appointment1;
 
         assertSame(appointment1,appointment3);

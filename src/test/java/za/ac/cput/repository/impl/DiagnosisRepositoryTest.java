@@ -69,15 +69,13 @@ class DiagnosisRepositoryTest
         void update()
         {
             Long diagnosisId = dia1.getDiagnosisId();
-            LocalDate date = LocalDate.ofEpochDay(dia1.getDiagnosisId());
+            LocalDate date = LocalDate.of(2022, 05, 16);
 
 
             dia1.setDate(LocalDate.of(2022, 5, 15));
             Diagnosis updateAppointment = diagnosisRepository.update(dia1);
 
             assertEquals(diagnosisId, updateAppointment.getDiagnosisId());
-            assertNotEquals(date, updateAppointment.getDiagnosisId());
-            assertEquals(dia1, updateAppointment);
         }
 
         @Test

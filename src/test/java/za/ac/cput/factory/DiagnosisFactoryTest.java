@@ -23,7 +23,6 @@ class DiagnosisFactoryTest
         Diagnosis dia2 = DiagnosisFactory.createDiagnosis("Heart disease", "PET SCAN",LocalDate.of(2022, 5, 7));
         Diagnosis dia3 = dia1;
 
-        assertEquals(dia1,dia2);
         assertNotEquals(dia1,dia2);
     }
 
@@ -36,7 +35,6 @@ class DiagnosisFactoryTest
         assertSame(dia1,dia3);
         assertSame(dia1.getDate(),dia1.getDate());
 
-        assertNotSame(dia1,dia3);
         assertNotSame(dia1.getDate(),dia2.getDate());
     }
   
