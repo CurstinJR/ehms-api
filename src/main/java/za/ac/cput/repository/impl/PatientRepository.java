@@ -45,7 +45,6 @@ public class PatientRepository implements IPatientRepository
         return Optional.ofNullable(patient);
     }
 
-    @Override
     public Collection<Patient> findAll()
     {
         return patientDB;
