@@ -5,7 +5,8 @@ import za.ac.cput.repository.IRepository;
 
 import java.util.Set;
 
-public interface ILabTestFactory extends IRepository<LabTestRepository,Long> {
+public interface ILabTestRepository extends IRepository<LabTest,Long> {
+
 
     public Set<LabTest> getAll();
 }
