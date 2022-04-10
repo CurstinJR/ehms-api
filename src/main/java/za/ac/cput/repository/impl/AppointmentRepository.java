@@ -37,10 +37,10 @@ public class AppointmentRepository implements IAppointment{
     }
 
     @Override
-    public Optional<Appointment> findById(Long appointmenId)
+    public Optional<Appointment> findById(Long appointmentId)
     {
         Appointment appointment = appointmentDB.stream()
-                .filter(a -> a.getAppointmentId().equals(appointmenId))
+                .filter(a -> a.getAppointmentId().equals(appointmentId))
                 .findFirst()
                 .orElse(null);
 

@@ -15,7 +15,8 @@ public class VitalsFactory {
 
         Long vitalsId = Helper.generateId();
 
-        return new Vitals.Builder().vitalsId(vitalsId)
+        return new Vitals.Builder()
+                .vitalsId(vitalsId)
                 .weight(weight)
                 .height(height)
                 .bloodPressure(bloodPressure)
