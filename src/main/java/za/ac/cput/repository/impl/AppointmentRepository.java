@@ -1,11 +1,16 @@
 package za.ac.cput.repository.impl;
 
 import za.ac.cput.entity.Appointment;
-import za.ac.cput.entity.Bill;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
+
+/*
+AppointmentRepository.java
+Author: Tarren-Marc Adams - 214041794
+Date: 10 April 2022
+ */
 
 public class AppointmentRepository implements IAppointment{
     private static AppointmentRepository appointmentRepository = null;
