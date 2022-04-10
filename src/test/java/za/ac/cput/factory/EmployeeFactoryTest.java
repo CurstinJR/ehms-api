@@ -1,13 +1,12 @@
 package za.ac.cput.factory;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.Employee;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
-Appointment.java
+EmpoyeeFactoryTest.java
 Author: Tarren-Marc Adams - 214041794
 Date: 9 April 2022
  */
@@ -17,15 +16,15 @@ class EmployeeFactoryTest {
     @Test
     public void addEmployeeTest1(){
         // test if employee can be created
-        Employee employee = EmployeeFactory.createEmployee(3L,"Lyle","Adams");
+        Employee employee = EmployeeFactory.createEmployee("lyle","Adams");
         assertNotNull(employee);
         System.out.println("employee has been added");
     }
 
     @Test
     void testEquality() {
-        Employee employee1 = EmployeeFactory.createEmployee(1L,"Lito","Oosthuizen");
-        Employee employee2 = EmployeeFactory.createEmployee(2L,"Carey","Koopman");
+        Employee employee1 = EmployeeFactory.createEmployee("Lito","Oosthuizen");
+        Employee employee2 = EmployeeFactory.createEmployee("Carey","Koopman");
         Employee employee3 = employee1;
 
         assertEquals(employee1,employee3);
@@ -34,8 +33,8 @@ class EmployeeFactoryTest {
 
     @Test
     void testIdentity(){
-        Employee employee1 = EmployeeFactory.createEmployee(1L,"Lito","Oosthuizen");
-        Employee employee2 = EmployeeFactory.createEmployee(2L,"Carey","Koopman");
+        Employee employee1 = EmployeeFactory.createEmployee("Lito","Oosthuizen");
+        Employee employee2 = EmployeeFactory.createEmployee("Carey","Koopman");
         Employee employee3 = employee1;
 
         assertSame(employee1,employee3);

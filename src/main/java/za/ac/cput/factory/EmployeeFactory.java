@@ -1,16 +1,20 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.Employee;
+import za.ac.cput.util.Helper;
 
 /*
-Appointment.java
+EmployeeFactory.java
 Author: Tarren-Marc Adams - 214041794
 Date: 9 April 2022
  */
 
 public class EmployeeFactory {
 
-    public static Employee createEmployee (Long employeeId, String employeeName, String employeeSurname){
+    public static Employee createEmployee (String employeeName, String employeeSurname){
+
+        Long employeeId = Helper.generateId();
+
         return new Employee.Builder().employeeId(employeeId)
                 .employeeName(employeeName)
                 .employeeSurname(employeeSurname)
