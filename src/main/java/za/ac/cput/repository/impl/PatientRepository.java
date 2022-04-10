@@ -3,6 +3,7 @@ package za.ac.cput.repository.impl;
 import za.ac.cput.entity.Patient;
 import za.ac.cput.repository.IRepository;
 
+import java.util.Collection;
 import java.util.Optional;
 
 /*
@@ -25,22 +26,23 @@ public class PatientRepository implements IRepository<Patient, Long>
     }
 
     @Override
-    public Iterable<Patient> findAll()
+    public Collection<Patient> findAll()
     {
         return null;
     }
 
     @Override
-    public Patient update(Patient entity, Long aLong)
+    public Patient update(Patient entity)
     {
         return null;
     }
 
     @Override
-    public void delete(Patient entity)
-    {
-
+    public boolean deleteById(Long aLong) {
+        return false;
     }
+
+
 
     @Override
     public boolean existsById(Long id)
