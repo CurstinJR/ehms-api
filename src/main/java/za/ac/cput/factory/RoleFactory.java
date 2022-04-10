@@ -13,9 +13,9 @@ public class RoleFactory {
 
     public static Role createRole(String roleName, String roleDescription)
     {
-        Long RoleId= Helper.generateID();
+        Long RoleId= Helper.generateId();
         Role role =new Role.Builder().setRoleId(RoleId)
-                .setRoleName(roleName).setRoleDescription(roleDescription).Build();
+                .setRoleName(roleName).setRoleDescription(roleDescription).build();
         return  role;
     }
 }

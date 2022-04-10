@@ -82,7 +82,7 @@ public class Prescription {
             this.type= type;
             return this;
         }
-        public Builder cody(Prescription prescription)
+        public Builder copy(Prescription prescription)
         {
             this.prescriptionNumber=prescription.prescriptionNumber;
             this.name=prescription.name;
@@ -91,7 +91,7 @@ public class Prescription {
             this.type=prescription.type;
             return this;
         }
-        public  Prescription  Build()
+        public  Prescription  build()
         {
             return new Prescription (this);
         }

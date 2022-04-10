@@ -57,14 +57,14 @@ public class Role {
             return this;
         }
 
-        public Role.Builder cody(Role role)
+        public Role.Builder copy(Role role)
         {
             this.roleId=role.roleId;
             this.roleName=role.roleName;
             this.roleDescription=role.roleDescription;
             return this;
         }
-        public  Role  Build()
+        public  Role  build()
         {
             return new Role (this);
         }

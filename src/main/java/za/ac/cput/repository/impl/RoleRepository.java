@@ -1,4 +1,4 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 /*
 
 AUTHOR Chantal Niyonzima
@@ -7,8 +7,8 @@ Date April 9 2022
  */
 
 import za.ac.cput.entity.Role;
-import za.ac.cput.repository.impl.IRole;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -48,12 +48,12 @@ public class RoleRepository implements IRole {
     }
 
     @Override
-    public Iterable<Role> findAll() {
+    public Collection<Role> findAll() {
         return null;
     }
 
     @Override
-    public Role update(Role role, Long id) {
+    public Role update(Role role) {
         Optional<Role> currentPrescription=findById(role.getRoleId());
         if (currentPrescription!=null)
         {
@@ -62,6 +62,12 @@ public class RoleRepository implements IRole {
             roleDB.add(role);
         }
         return  role;
+    }
+
+    @Override
+    public boolean deleteById(Long aLong)
+    {
+        return false;
     }
 
     @Override

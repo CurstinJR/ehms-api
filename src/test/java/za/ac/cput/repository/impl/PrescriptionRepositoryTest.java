@@ -1,4 +1,4 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 /*
 
 AUTHOR Chantal Niyonzima
@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.entity.Prescription;
 import za.ac.cput.factory.PrescriptionFactory;
+import za.ac.cput.repository.impl.PrescriptionRepository;
 
 import java.util.Optional;
 
@@ -40,10 +41,10 @@ class PrescriptionRepositoryTest {
     @Test
     void c_update() {
         Prescription created =repository.save(prescription);
-        Prescription update= new Prescription.Builder().cody(prescription).setName("Uterine")
+        Prescription update= new Prescription.Builder().copy(prescription).setName("Uterine")
                 .setBigDecimal(45.89).setDescription("It  helps restore good gut bacteria and reduces the risk of developing infectious diarrhoea.")
-                .setType("Health Probiotic ").Build();
-        assertNotNull(repository.update(update,update.getPrescriptionNumber()));
+                .setType("Health Probiotic ").build();
+        assertNotNull(repository.update(update));
         System.out.println("update"+update);
     }
 

@@ -9,6 +9,6 @@ import java.util.Set;
 public interface IPrescription extends IRepository<Prescription, Long> {
 
 
-
+    void delete(Prescription prescription);
     public Set<Prescription> getAll();
 }

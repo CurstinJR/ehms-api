@@ -1,4 +1,4 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 /*
 
 AUTHOR Chantal Niyonzima
@@ -8,10 +8,9 @@ Date April 9 2022
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.entity.Prescription;
 import za.ac.cput.entity.Role;
-import za.ac.cput.factory.PrescriptionFactory;
 import za.ac.cput.factory.RoleFactory;
+import za.ac.cput.repository.impl.RoleRepository;
 
 import java.util.Optional;
 
@@ -39,8 +38,8 @@ class RoleRepositoryTest {
     @Test
     void c_update() {
         Role created =repository.save(role);
-        Role update= new Role.Builder().cody(role).setRoleName("Manager").setRoleDescription("A manager is a professional who takes a leadership role in an organisation and manages a team of employees").Build();
-        assertNotNull(repository.update(update,update.getRoleId()));
+        Role update= new Role.Builder().copy(role).setRoleName("Manager").setRoleDescription("A manager is a professional who takes a leadership role in an organisation and manages a team of employees").build();
+        assertNotNull(repository.update(update));
         System.out.println("updated"+update);
     }
 

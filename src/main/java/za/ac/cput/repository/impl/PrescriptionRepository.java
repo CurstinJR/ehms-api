@@ -1,4 +1,4 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 /*
 
 AUTHOR Chantal Niyonzima
@@ -6,8 +6,8 @@ Student Number 217267815
 Date April 9 2022
  */
 import za.ac.cput.entity.Prescription;
-import za.ac.cput.repository.impl.IPrescription;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -52,14 +52,14 @@ public class PrescriptionRepository  implements IPrescription {
     }
 
     @Override
-    public Iterable<Prescription> findAll()
+    public Collection<Prescription> findAll()
     {
 
         return null;
     }
 
     @Override
-    public Prescription update(Prescription prescription, Long aLong) {
+    public Prescription update(Prescription prescription) {
         Optional<Prescription> currentPrescription=findById(prescription.getPrescriptionNumber());
         if (currentPrescription!=null)
         {
@@ -69,6 +69,12 @@ public class PrescriptionRepository  implements IPrescription {
             System.out.println("update"+currentPrescription);
         }
         return  prescription;
+    }
+
+    @Override
+    public boolean deleteById(Long aLong)
+    {
+        return false;
     }
 
     @Override
