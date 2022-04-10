@@ -1,11 +1,16 @@
 package za.ac.cput.repository.impl;
 
-import za.ac.cput.entity.Employee;
 import za.ac.cput.entity.Vitals;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
+
+/*
+VitalsRepository.java
+Author: Tarren-Marc Adams - 214041794
+Date: 10 April 2022
+ */
 
 public class VitalsRepository implements IVitals{
 

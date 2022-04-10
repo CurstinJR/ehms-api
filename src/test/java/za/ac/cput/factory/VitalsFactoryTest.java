@@ -5,6 +5,12 @@ import za.ac.cput.entity.Vitals;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+VitalsFactoryTest.java
+Author: Tarren-Marc Adams - 214041794
+Date: 8 April 2022
+ */
+
 class VitalsFactoryTest {
 
     @Test
