@@ -18,15 +18,15 @@ class AppointmentFactoryTest {
 
     @Test
     public void addAppointment(){
-        Appointment appointment1 = AppointmentFactory.createApppointment(7L, "15:00", LocalDate.ofEpochDay(21-04-22));
+        Appointment appointment1 = AppointmentFactory.createApppointment("15:00",  LocalDate.ofEpochDay(21-04-22));
         assertNotNull(appointment1);
         System.out.println("Appointment created");
     }
 
     @Test
     void testEquality(){
-        Appointment appointment1 = AppointmentFactory.createApppointment(12L,"14:00", LocalDate.ofEpochDay(04-07-2011));
-        Appointment appointment2 = AppointmentFactory.createApppointment(13L,"14:00", LocalDate.ofEpochDay(04-07-2011));
+        Appointment appointment1 = AppointmentFactory.createApppointment("14:00", LocalDate.of(2022,03,12));
+        Appointment appointment2 = AppointmentFactory.createApppointment("14:00", LocalDate.of(2022,04,1));
         Appointment appointment3 = appointment1;
 
         assertEquals(appointment1,appointment3);
@@ -35,8 +35,8 @@ class AppointmentFactoryTest {
 
     @Test
     void testIdentity(){
-        Appointment appointment1 = AppointmentFactory.createApppointment(12L,"14:00", LocalDate.ofEpochDay(04-07-2011));
-        Appointment appointment2 = AppointmentFactory.createApppointment(13L,"10:00", LocalDate.ofEpochDay(04-07-2011));
+        Appointment appointment1 = AppointmentFactory.createApppointment("14:00", LocalDate.of(2022,03,12));
+        Appointment appointment2 = AppointmentFactory.createApppointment("14:00", LocalDate.of(2022,04,1));
         Appointment appointment3 = appointment1;
 
         assertSame(appointment1,appointment3);
