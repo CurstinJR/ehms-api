@@ -3,9 +3,7 @@ package za.ac.cput.repository.impl;
 import za.ac.cput.entity.LoginCredentials;
 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Optional;
+import java.util.*;
 
 
 /*
@@ -23,39 +21,62 @@ private LoginCredentialsRepository() {
     loginCredentialsDB = new ArrayList<>();
 
 }
- public static final LoginCredentialsRepository getLoginCredentialsRepository() {
-    return loginCredentialsRepository == null ?
-            loginCredentialsRepository = new LoginCredentialsRepository():
-            loginCredentialsRepository;
+ public static LoginCredentialsRepository getLoginCredentialsRepository() {
+   if(loginCredentialsRepository == null) {
+       loginCredentialsRepository = new LoginCredentialsRepository();
+   }
+   return loginCredentialsRepository;
+}
+@Override
+public LoginCredentials save(LoginCredentials loginCredentials) {
+   boolean success = loginCredentialsDB.add(loginCredentials);
+   if(!success)
+       return null;
+       return loginCredentials;
 }
 
     @Override
-    public LoginCredentialsRepository save(LoginCredentialsRepository entity) {
+    public Optional<LoginCredentials> findById(Long id) {
+    LoginCredentials loginCredentials = loginCredentialsDB.stream().
+            filter(f -> f.getId() == id)
+            .findFirst()
+            .orElse(null);
+    return Optional.ofNullable(loginCredentials);
+    }
+
+    public Collection<LoginCredentials> findAll() {
+
+    return loginCredentialsDB;
+
+    }
+
+    @Override
+    public LoginCredentials update(LoginCredentials loginCredentials) {
+      long id = loginCredentials.getId();
+      LoginCredentials oldLoginCredentials = findById(id).orElseThrow();
+
+      loginCredentialsDB.remove(oldLoginCredentials);
+      loginCredentialsDB.add(loginCredentials);
+      return loginCredentials;
+    }
+
+    @Override
+    public boolean deleteById(Long id ) {
+       LoginCredentials loginCredentials = loginCredentialsRepository.findById(id).orElseThrow();
+
+        return loginCredentialsDB.remove(loginCredentials);
+    }
+
+
+
+    @Override
+    public boolean existsById(Long id) {
+        return loginCredentialsDB.stream()
+                .anyMatch(loginCredentials -> loginCredentials.getId() == id);
+    }
+
+    @Override
+    public Set<LoginCredentials> getAll() {
         return null;
-    }
-
-    @Override
-    public Optional<LoginCredentialsRepository> findById(Long aLong) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Iterable<LoginCredentialsRepository> findAll() {
-        return null;
-    }
-
-    @Override
-    public LoginCredentialsRepository update(LoginCredentialsRepository entity, Long aLong) {
-        return null;
-    }
-
-    @Override
-    public void delete(LoginCredentialsRepository entity) {
-
-    }
-
-    @Override
-    public boolean existsById(Long aLong) {
-        return false;
     }
 }
