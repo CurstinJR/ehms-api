@@ -1,7 +1,8 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.Appointment;
+import za.ac.cput.entity.contact.Appointment;
+import za.ac.cput.factory.contact.AppointmentFactory;
 
 import java.time.LocalDate;
 

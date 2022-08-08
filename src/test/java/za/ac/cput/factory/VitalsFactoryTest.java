@@ -1,7 +1,8 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.Vitals;
+import za.ac.cput.entity.medical.Vitals;
+import za.ac.cput.factory.medical.VitalsFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,7 +1,8 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.LabTest;
+import za.ac.cput.entity.medical.LabTest;
+import za.ac.cput.factory.medical.LabTestFactory;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

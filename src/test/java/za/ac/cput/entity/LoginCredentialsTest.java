@@ -1,8 +1,7 @@
 package za.ac.cput.entity;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import za.ac.cput.entity.user.LoginCredentials;
 
 class LoginCredentialsTest {
 

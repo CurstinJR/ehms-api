@@ -2,6 +2,7 @@ package za.ac.cput.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import za.ac.cput.entity.user.Patient;
 
 import static org.junit.jupiter.api.Assertions.*;
 

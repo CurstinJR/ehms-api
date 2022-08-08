@@ -2,6 +2,7 @@ package za.ac.cput.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import za.ac.cput.entity.payment.Bill;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

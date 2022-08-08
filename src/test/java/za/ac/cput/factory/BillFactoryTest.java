@@ -1,7 +1,8 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.Bill;
+import za.ac.cput.entity.payment.Bill;
+import za.ac.cput.factory.payment.BillFactory;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

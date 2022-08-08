@@ -1,7 +1,8 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.MedicalAid;
+import za.ac.cput.entity.payment.MedicalAid;
+import za.ac.cput.factory.payment.MedicalAidFactory;
 
 import java.time.LocalDate;
 

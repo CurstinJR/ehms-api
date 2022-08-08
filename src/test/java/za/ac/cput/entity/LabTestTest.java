@@ -1,11 +1,10 @@
 package za.ac.cput.entity;
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.entity.medical.LabTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class LabTestTest {
 
