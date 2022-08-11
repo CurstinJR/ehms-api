@@ -1,23 +1,29 @@
 package za.ac.cput.entity.payment;
 
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
 /**
  * MedicalAid.java
  * Author: Curstin Rose - 220275408
- * Date: 6 April 2022
  */
-public class MedicalAid
-{
+@Entity
+@Table(name = "medical_aid")
+@NoArgsConstructor
+public class MedicalAid {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long claimId;
     private LocalDate claimDate;
     private String claimType;
     private String medicalAidName;
     private Long medicalAidNo;
 
-    public MedicalAid(Builder builder)
-    {
+    public MedicalAid(Builder builder) {
         this.claimId = builder.claimId;
         this.claimDate = builder.claimDate;
         this.claimType = builder.claimType;
@@ -25,59 +31,48 @@ public class MedicalAid
         this.medicalAidNo = builder.medicalAidNo;
     }
 
-    public Long getClaimId()
-    {
+    public Long getClaimId() {
         return claimId;
     }
 
-    public LocalDate getClaimDate()
-    {
-        return claimDate;
-    }
-
-    public String getClaimType()
-    {
-        return claimType;
-    }
-
-    public String getMedicalAidName()
-    {
-        return medicalAidName;
-    }
-
-    public Long getMedicalAidNo()
-    {
-        return medicalAidNo;
-    }
-
-    public void setClaimId(Long claimId)
-    {
+    public void setClaimId(Long claimId) {
         this.claimId = claimId;
     }
 
-    public void setClaimDate(LocalDate claimDate)
-    {
+    public LocalDate getClaimDate() {
+        return claimDate;
+    }
+
+    public void setClaimDate(LocalDate claimDate) {
         this.claimDate = claimDate;
     }
 
-    public void setClaimType(String claimType)
-    {
+    public String getClaimType() {
+        return claimType;
+    }
+
+    public void setClaimType(String claimType) {
         this.claimType = claimType;
     }
 
-    public void setMedicalAidName(String medicalAidName)
-    {
+    public String getMedicalAidName() {
+        return medicalAidName;
+    }
+
+    public void setMedicalAidName(String medicalAidName) {
         this.medicalAidName = medicalAidName;
     }
 
-    public void setMedicalAidNo(Long medicalAidNo)
-    {
+    public Long getMedicalAidNo() {
+        return medicalAidNo;
+    }
+
+    public void setMedicalAidNo(Long medicalAidNo) {
         this.medicalAidNo = medicalAidNo;
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -92,8 +87,7 @@ public class MedicalAid
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         int result = claimId != null ? claimId.hashCode() : 0;
         result = 31 * result + (claimDate != null ? claimDate.hashCode() : 0);
         result = 31 * result + (claimType != null ? claimType.hashCode() : 0);
@@ -103,8 +97,7 @@ public class MedicalAid
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "MedicalAid{" +
                 "claimId=" + claimId +
                 ", claimDate=" + claimDate +
@@ -114,46 +107,39 @@ public class MedicalAid
                 '}';
     }
 
-    public static class Builder
-    {
+    public static class Builder {
         private Long claimId;
         private LocalDate claimDate;
         private String claimType;
         private String medicalAidName;
         private Long medicalAidNo;
 
-        public Builder claimId(Long claimId)
-        {
+        public Builder claimId(Long claimId) {
             this.claimId = claimId;
             return this;
         }
 
-        public Builder claimDate(LocalDate claimDate)
-        {
+        public Builder claimDate(LocalDate claimDate) {
             this.claimDate = claimDate;
             return this;
         }
 
-        public Builder claimType(String claimType)
-        {
+        public Builder claimType(String claimType) {
             this.claimType = claimType;
             return this;
         }
 
-        public Builder medicalAidName(String medicalAidName)
-        {
+        public Builder medicalAidName(String medicalAidName) {
             this.medicalAidName = medicalAidName;
             return this;
         }
 
-        public Builder medicalAidNo(Long medicalAidNo)
-        {
+        public Builder medicalAidNo(Long medicalAidNo) {
             this.medicalAidNo = medicalAidNo;
             return this;
         }
 
-        public Builder copy(MedicalAid medicalAid)
-        {
+        public Builder copy(MedicalAid medicalAid) {
             this.claimId = medicalAid.claimId;
             this.claimDate = medicalAid.claimDate;
             this.claimType = medicalAid.claimType;
@@ -163,8 +149,7 @@ public class MedicalAid
             return this;
         }
 
-        public MedicalAid build()
-        {
+        public MedicalAid build() {
             return new MedicalAid(this);
         }
     }

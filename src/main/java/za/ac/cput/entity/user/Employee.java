@@ -11,7 +11,7 @@ public class Employee {
     private String employeeName;
     private String employeeSurname;
 
-    private Employee(Builder builder){
+    private Employee(Builder builder) {
         this.employeeId = builder.employeeId;
         this.employeeName = builder.employeeName;
         this.employeeSurname = builder.employeeSurname;
@@ -21,18 +21,20 @@ public class Employee {
         return employeeId;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
-    }
-
-    public String getEmployeeSurname() {return employeeSurname;}
-
     public void setEmployeeId(Long employeeId) {
         this.employeeId = employeeId;
     }
 
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
+    }
+
+    public String getEmployeeSurname() {
+        return employeeSurname;
     }
 
     public void setEmployeeSurname(String employeeSurname) {
@@ -48,7 +50,7 @@ public class Employee {
                 '}';
     }
 
-    public static class Builder{
+    public static class Builder {
         private Long employeeId;
         private String employeeName;
         private String employeeSurname;
@@ -68,14 +70,14 @@ public class Employee {
             return this;
         }
 
-        public Builder copy(Employee employee){
+        public Builder copy(Employee employee) {
             this.employeeId = employee.employeeId;
             this.employeeName = employee.employeeName;
             this.employeeSurname = employee.employeeSurname;
             return this;
         }
 
-        public Employee build(){
+        public Employee build() {
             return new Employee(this);
         }
     }

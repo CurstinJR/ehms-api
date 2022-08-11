@@ -11,12 +11,11 @@ import za.ac.cput.util.Helper;
 
 public class PrescriptionFactory {
 
-    public static Prescription createPrescription(String name, double bigDecimal, String description, String type)
-    {
-        Long prescriptionNumber= Helper.generateId();
-        Prescription prescription  =new Prescription .Builder().setPrescriptionNumber(prescriptionNumber)
+    public static Prescription createPrescription(String name, double bigDecimal, String description, String type) {
+        Long prescriptionNumber = Helper.generateId();
+        Prescription prescription = new Prescription.Builder().setPrescriptionNumber(prescriptionNumber)
                 .setName(name).setBigDecimal(bigDecimal).setDescription(description).setType(type).build();
-        return  prescription;
+        return prescription;
     }
 
 }

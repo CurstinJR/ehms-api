@@ -13,7 +13,7 @@ public class Appointment {
     private String appointmentTime;
     private LocalDate appointmentDate;
 
-    private Appointment(Builder builder){
+    private Appointment(Builder builder) {
         this.appointmentId = builder.appointmentId;
         this.appointmentTime = builder.appointmentTime;
         this.appointmentDate = builder.appointmentDate;
@@ -23,20 +23,20 @@ public class Appointment {
         return appointmentId;
     }
 
-    public String getAppointmentTime() {
-        return appointmentTime;
-    }
-
-    public LocalDate getAppointmentDate() {
-        return appointmentDate;
-    }
-
     public void setAppointmentId(Long appointmentId) {
         this.appointmentId = appointmentId;
     }
 
+    public String getAppointmentTime() {
+        return appointmentTime;
+    }
+
     public void setAppointmentTime(String appointmentTime) {
         this.appointmentTime = appointmentTime;
+    }
+
+    public LocalDate getAppointmentDate() {
+        return appointmentDate;
     }
 
     public void setAppointmentDate(LocalDate appointmentDate) {
@@ -52,7 +52,7 @@ public class Appointment {
                 '}';
     }
 
-    public static class Builder{
+    public static class Builder {
         private Long appointmentId;
         private String appointmentTime;
         private LocalDate appointmentDate;
@@ -72,14 +72,14 @@ public class Appointment {
             return this;
         }
 
-        public Builder copy(Appointment appointment){
+        public Builder copy(Appointment appointment) {
             this.appointmentId = appointment.appointmentId;
             this.appointmentTime = appointment.appointmentTime;
             this.appointmentDate = appointment.appointmentDate;
             return this;
         }
 
-        public Appointment build(){
+        public Appointment build() {
             return new Appointment(this);
         }
     }

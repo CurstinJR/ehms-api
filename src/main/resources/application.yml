@@ -3,3 +3,29 @@ spring:
 
   main:
     banner-mode: off
+
+  # datasource config
+  datasource:
+    url: jdbc:mysql://localhost:3306/ehms
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # jpa/hibernate config
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: mysql
+
+  # sql data config
+  sql:
+    init:
+      platform: mysql
+      data-locations: classpath:sql/data-mysql.sql
+      mode: always

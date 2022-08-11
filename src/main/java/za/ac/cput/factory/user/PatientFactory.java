@@ -8,10 +8,8 @@ import za.ac.cput.util.Helper;
  * Author: Curstin Rose - 220275408
  * Date: 8 April 2022
  */
-public class PatientFactory
-{
-    public static Patient createPatient(String patientName, String patientSurname)
-    {
+public class PatientFactory {
+    public static Patient createPatient(String patientName, String patientSurname) {
         Long patientId = Helper.generateId();
 
         return new Patient.Builder()

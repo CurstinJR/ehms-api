@@ -13,11 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * Author: Curstin Rose - 220275408
  * Date: 9 April 2022
  */
-class MedicalAidFactoryTest
-{
+class MedicalAidFactoryTest {
     @Test
-    void createMedicalAidTest()
-    {
+    void createMedicalAidTest() {
         MedicalAid medicalAid = MedicalAidFactory.createMedicalAid("cashless",
                 LocalDate.of(2022, 5, 16),
                 1234_4567_8901_2345L,

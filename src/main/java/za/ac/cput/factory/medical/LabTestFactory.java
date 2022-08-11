@@ -8,10 +8,10 @@ import java.time.LocalDate;
 
 public class LabTestFactory {
 
-    public static LabTest createLabTest (Long testId, String testName, LocalDate testSampleDate, BigDecimal testFee) {
-        if(Helper.isNull(testId))
+    public static LabTest createLabTest(Long testId, String testName, LocalDate testSampleDate, BigDecimal testFee) {
+        if (Helper.isNull(testId))
             return null;
-        if(Helper.isNullorEmpty(testName))
+        if (Helper.isNullorEmpty(testName))
             return null;
 
         return new LabTest.Builder()

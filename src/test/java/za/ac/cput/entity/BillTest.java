@@ -14,14 +14,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * Author: Curstin Rose - 220275408
  * Date: 6 April 2022
  */
-class BillTest
-{
+class BillTest {
     Bill bill1;
     Bill bill2;
 
     @BeforeEach
-    void setUp()
-    {
+    void setUp() {
         bill1 = new Bill.Builder()
                 .billId(1L)
                 .billAmount(BigDecimal.valueOf(299.99))
@@ -38,8 +36,7 @@ class BillTest
     }
 
     @Test
-    public void billBuilderTest_shouldEqual()
-    {
+    public void billBuilderTest_shouldEqual() {
         bill2 = new Bill.Builder()
                 .copy(bill1)
                 .build();
@@ -48,21 +45,18 @@ class BillTest
     }
 
     @Test
-    public void patientBuilderTest_shouldNotEqual()
-    {
+    public void patientBuilderTest_shouldNotEqual() {
         assertNotEquals(bill1, bill2);
     }
 
     @Test
-    public void patientBuilderTest_shouldBeSame()
-    {
+    public void patientBuilderTest_shouldBeSame() {
         bill2 = bill1;
         assertSame(bill1, bill2);
     }
 
     @Test
-    public void patientBuilderTest_shouldNotBeSame()
-    {
+    public void patientBuilderTest_shouldNotBeSame() {
         bill2 = new Bill.Builder()
                 .copy(bill1)
                 .build();
@@ -71,10 +65,8 @@ class BillTest
     }
 
     @Test
-    public void patientBuilderTest_shouldNotEqualHash()
-    {
-        for (long i = 0L; i < 100L; i++)
-        {
+    public void patientBuilderTest_shouldNotEqualHash() {
+        for (long i = 0L; i < 100L; i++) {
             Bill bill1 = new Bill.Builder()
                     .billId(i)
                     .build();
@@ -88,8 +80,7 @@ class BillTest
     }
 
     @Test
-    public void patientBuilderTest_shouldEqualHash()
-    {
+    public void patientBuilderTest_shouldEqualHash() {
         bill2 = new Bill.Builder()
                 .copy(bill1)
                 .build();

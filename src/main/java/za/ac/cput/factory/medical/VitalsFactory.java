@@ -10,7 +10,7 @@ Author: Tarren-Marc Adams - 214041794
 Date: 10 April 2022
  */
 public class VitalsFactory {
-    public static Vitals createVitals(Double weight, Double height, String bloodPressure, Double temperature){
+    public static Vitals createVitals(Double weight, Double height, String bloodPressure, Double temperature) {
 
         Long vitalsId = Helper.generateId();
 

@@ -1,4 +1,5 @@
 package za.ac.cput.entity.user;
+
 /*
 
 AUTHOR Chantal Niyonzima
@@ -7,16 +8,17 @@ Date April 9 2022
  */
 public class Role {
 
-    private Long roleId ;
-    private String roleName;
-    private String roleDescription;
-    public Role (Role.Builder builder)
-    {
-        this.roleId =builder.roleId ;
-        this.roleName=builder.roleName;
-        this.roleDescription=builder.roleDescription;
+    private final Long roleId;
+    private final String roleName;
+    private final String roleDescription;
+
+    public Role(Role.Builder builder) {
+        this.roleId = builder.roleId;
+        this.roleName = builder.roleName;
+        this.roleDescription = builder.roleDescription;
 
     }
+
     public Long getRoleId() {
         return roleId;
     }
@@ -24,6 +26,7 @@ public class Role {
     public String roleName() {
         return roleName;
     }
+
     public String roleDescription() {
         return roleDescription;
     }
@@ -37,13 +40,14 @@ public class Role {
                 ", roleDescription='" + roleDescription + '\'' +
                 '}';
     }
-    public static class Builder
-    {
-        private Long roleId ;
+
+    public static class Builder {
+        private Long roleId;
         private String roleName;
         private String roleDescription;
+
         public Role.Builder setRoleId(Long roleId) {
-            this.roleId =roleId;
+            this.roleId = roleId;
             return this;
         }
 
@@ -53,20 +57,19 @@ public class Role {
         }
 
         public Role.Builder setRoleDescription(String roleDescription) {
-            this.roleDescription= roleDescription;
+            this.roleDescription = roleDescription;
             return this;
         }
 
-        public Role.Builder copy(Role role)
-        {
-            this.roleId=role.roleId;
-            this.roleName=role.roleName;
-            this.roleDescription=role.roleDescription;
+        public Role.Builder copy(Role role) {
+            this.roleId = role.roleId;
+            this.roleName = role.roleName;
+            this.roleDescription = role.roleDescription;
             return this;
         }
-        public  Role  build()
-        {
-            return new Role (this);
+
+        public Role build() {
+            return new Role(this);
         }
     }
 

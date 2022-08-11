@@ -1,5 +1,8 @@
 package za.ac.cput.entity.payment;
 
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -7,66 +10,60 @@ import java.util.Objects;
 /**
  * Bill.java
  * Author: Curstin Rose - 220275408
- * Date: 6 April 2022
  */
-public class Bill
-{
+@Entity
+@Table(name = "bill")
+@NoArgsConstructor
+public class Bill {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long billId;
     private BigDecimal billAmount;
     private String billDescription;
     private LocalDate billDate;
 
-    public Bill(Builder builder)
-    {
+    public Bill(Builder builder) {
         this.billId = builder.billId;
         this.billAmount = builder.billAmount;
         this.billDescription = builder.billDescription;
         this.billDate = builder.billDate;
     }
 
-    public Long getBillId()
-    {
+    public Long getBillId() {
         return billId;
     }
 
-    public BigDecimal getBillAmount()
-    {
-        return billAmount;
-    }
-
-    public String getBillDescription()
-    {
-        return billDescription;
-    }
-
-    public LocalDate getBillDate()
-    {
-        return billDate;
-    }
-
-    public void setBillId(Long billId)
-    {
+    public void setBillId(Long billId) {
         this.billId = billId;
     }
 
-    public void setBillAmount(BigDecimal billAmount)
-    {
+    public BigDecimal getBillAmount() {
+        return billAmount;
+    }
+
+    public void setBillAmount(BigDecimal billAmount) {
         this.billAmount = billAmount;
     }
 
-    public void setBillDescription(String billDescription)
-    {
+    public String getBillDescription() {
+        return billDescription;
+    }
+
+    public void setBillDescription(String billDescription) {
         this.billDescription = billDescription;
     }
 
-    public void setBillDate(LocalDate billDate)
-    {
+    public LocalDate getBillDate() {
+        return billDate;
+    }
+
+    public void setBillDate(LocalDate billDate) {
         this.billDate = billDate;
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -80,8 +77,7 @@ public class Bill
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         int result = billId != null ? billId.hashCode() : 0;
         result = 31 * result + (billAmount != null ? billAmount.hashCode() : 0);
         result = 31 * result + (billDescription != null ? billDescription.hashCode() : 0);
@@ -90,8 +86,7 @@ public class Bill
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Bill{" +
                 "billId=" + billId +
                 ", billAmount=" + billAmount +
@@ -100,39 +95,33 @@ public class Bill
                 '}';
     }
 
-    public static class Builder
-    {
+    public static class Builder {
         private Long billId;
         private BigDecimal billAmount;
         private String billDescription;
         private LocalDate billDate;
 
-        public Builder billId(Long billId)
-        {
+        public Builder billId(Long billId) {
             this.billId = billId;
             return this;
         }
 
-        public Builder billAmount(BigDecimal billAmount)
-        {
+        public Builder billAmount(BigDecimal billAmount) {
             this.billAmount = billAmount;
             return this;
         }
 
-        public Builder billDescription(String billDescription)
-        {
+        public Builder billDescription(String billDescription) {
             this.billDescription = billDescription;
             return this;
         }
 
-        public Builder billDate(LocalDate billDate)
-        {
+        public Builder billDate(LocalDate billDate) {
             this.billDate = billDate;
             return this;
         }
 
-        public Builder copy(Bill bill)
-        {
+        public Builder copy(Bill bill) {
             this.billId = bill.billId;
             this.billAmount = bill.billAmount;
             this.billDescription = bill.billDescription;
@@ -141,8 +130,7 @@ public class Bill
             return this;
         }
 
-        public Bill build()
-        {
+        public Bill build() {
             return new Bill(this);
         }
     }

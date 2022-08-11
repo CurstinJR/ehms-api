@@ -10,11 +10,9 @@ import java.time.LocalDate;
  * Author: Curstin Rose - 220275408
  * Date: 8 April 2022
  */
-public class MedicalAidFactory
-{
+public class MedicalAidFactory {
     public static MedicalAid createMedicalAid(String claimType, LocalDate claimDate,
-                                              long medicalAidNo, String medicalAidName)
-    {
+                                              long medicalAidNo, String medicalAidName) {
         Long claimId = Helper.generateId();
         return new MedicalAid.Builder()
                 .claimId(claimId)
@@ -28,12 +26,12 @@ public class MedicalAidFactory
     /**
      * For client usage, the patient only needs to enter the medicalAidNo and
      * the medical aid name.
+     *
      * @param medicalAidNo
      * @param medicalAidName
      * @return
      */
-    public static MedicalAid createMedicalAidNoAndName(long medicalAidNo, String medicalAidName)
-    {
+    public static MedicalAid createMedicalAidNoAndName(long medicalAidNo, String medicalAidName) {
         return new MedicalAid.Builder()
                 .medicalAidNo(medicalAidNo)
                 .medicalAidName(medicalAidName)

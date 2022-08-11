@@ -11,7 +11,7 @@ Date: 9 April 2022
 
 public class EmployeeFactory {
 
-    public static Employee createEmployee (String employeeName, String employeeSurname){
+    public static Employee createEmployee(String employeeName, String employeeSurname) {
 
         Long employeeId = Helper.generateId();
 

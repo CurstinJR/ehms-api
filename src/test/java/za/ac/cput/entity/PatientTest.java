@@ -11,14 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * Author: Curstin Rose - 220275408
  * Date: 6 April 2022
  */
-class PatientTest
-{
+class PatientTest {
     Patient patientZero;
     Patient patientOne;
 
     @BeforeEach
-    void setUp()
-    {
+    void setUp() {
         patientZero = new Patient.Builder()
                 .patientId(100L)
                 .patientName("Quinn")
@@ -31,8 +29,7 @@ class PatientTest
     }
 
     @Test
-    public void patientBuilderTest_shouldEqual()
-    {
+    public void patientBuilderTest_shouldEqual() {
         patientOne = new Patient.Builder()
                 .copy(patientZero)
                 .build();
@@ -41,22 +38,19 @@ class PatientTest
     }
 
     @Test
-    public void patientBuilderTest_shouldNotEqual()
-    {
-       assertNotEquals(patientZero, patientOne);
+    public void patientBuilderTest_shouldNotEqual() {
+        assertNotEquals(patientZero, patientOne);
     }
 
     @Test
-    public void patientBuilderTest_shouldBeSame()
-    {
+    public void patientBuilderTest_shouldBeSame() {
         patientOne = patientZero;
 
         assertSame(patientZero, patientOne);
     }
 
     @Test
-    public void patientBuilderTest_shouldNotBeSame()
-    {
+    public void patientBuilderTest_shouldNotBeSame() {
         patientOne = new Patient.Builder()
                 .copy(patientZero)
                 .build();
@@ -65,10 +59,8 @@ class PatientTest
     }
 
     @Test
-    public void patientBuilderTest_shouldNotEqualHash()
-    {
-        for (long i = 0L; i < 100L; i++)
-        {
+    public void patientBuilderTest_shouldNotEqualHash() {
+        for (long i = 0L; i < 100L; i++) {
             Patient patient1 = new Patient.Builder()
                     .patientId(i)
                     .build();
@@ -82,8 +74,7 @@ class PatientTest
     }
 
     @Test
-    public void patientBuilderTest_shouldEqualHash()
-    {
+    public void patientBuilderTest_shouldEqualHash() {
         patientOne = new Patient.Builder()
                 .copy(patientZero)
                 .build();

@@ -13,14 +13,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * Author: Curstin Rose - 220275408
  * Date: 6 April 2022
  */
-class MedicalAidTest
-{
+class MedicalAidTest {
     MedicalAid medicalAid1;
     MedicalAid medicalAid2;
 
     @BeforeEach
-    void setUp()
-    {
+    void setUp() {
         medicalAid1 = new MedicalAid.Builder()
                 .claimId(1L)
                 .claimDate(LocalDate.of(2023, 6, 19))
@@ -37,8 +35,7 @@ class MedicalAidTest
     }
 
     @Test
-    public void medicalAidBuilderTest_shouldEqual()
-    {
+    public void medicalAidBuilderTest_shouldEqual() {
         medicalAid2 = new MedicalAid.Builder()
                 .copy(medicalAid1)
                 .build();
@@ -47,30 +44,25 @@ class MedicalAidTest
     }
 
     @Test
-    public void medicalAidBuilderTest_shouldNotEqual()
-    {
+    public void medicalAidBuilderTest_shouldNotEqual() {
         assertNotEquals(medicalAid1, medicalAid2);
     }
 
     @Test
-    public void medicalAidBuilderTest_shouldBeSame()
-    {
+    public void medicalAidBuilderTest_shouldBeSame() {
         medicalAid2 = medicalAid1;
 
         assertSame(medicalAid1, medicalAid2);
     }
 
     @Test
-    public void medicalAidBuilderTest_shouldNotBeSame()
-    {
+    public void medicalAidBuilderTest_shouldNotBeSame() {
         assertNotSame(medicalAid1, medicalAid2);
     }
 
     @Test
-    public void medicalAidBuilderTest_shouldNotEqualHash()
-    {
-        for (long i = 0L; i < 100L; i++)
-        {
+    public void medicalAidBuilderTest_shouldNotEqualHash() {
+        for (long i = 0L; i < 100L; i++) {
             MedicalAid medicalAid1 = new MedicalAid.Builder()
                     .claimId(i)
                     .medicalAidNo(i + 1)
@@ -86,8 +78,7 @@ class MedicalAidTest
     }
 
     @Test
-    public void medicalAidBuilderTest_shouldEqualHash()
-    {
+    public void medicalAidBuilderTest_shouldEqualHash() {
         medicalAid2 = new MedicalAid.Builder()
                 .copy(medicalAid1)
                 .build();

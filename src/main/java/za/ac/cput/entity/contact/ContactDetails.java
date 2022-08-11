@@ -20,12 +20,12 @@ public class ContactDetails {
         return contactId;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
     public void setContactId(Long contactId) {
         this.contactId = contactId;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {

@@ -20,8 +20,13 @@ public class LabTest {
         this.testSampleDate = builder.testSampleDate;
         this.testFee = builder.testFee;
     }
+
     public long getTestId() {
         return testId;
+    }
+
+    public void setTestId(long testId) {
+        this.testId = testId;
     }
 
     public String getTest() {
@@ -32,24 +37,20 @@ public class LabTest {
         return testSampleDate;
     }
 
-    public BigDecimal getTestFee() {
-        return testFee;
-    }
-
-    public void setTestId(long testId) {
-        this.testId = testId;
-    }
-
-    public void setTestName(String testName) {
-        this.testName = testName;
-    }
-
     public void setTestSampleDate(LocalDate testSampleDate) {
         this.testSampleDate = testSampleDate;
     }
 
+    public BigDecimal getTestFee() {
+        return testFee;
+    }
+
     public void setTestFee(BigDecimal testFee) {
         this.testFee = testFee;
+    }
+
+    public void setTestName(String testName) {
+        this.testName = testName;
     }
 
     @Override
@@ -61,6 +62,7 @@ public class LabTest {
                 ", testFee=" + testFee +
                 '}';
     }
+
     public static class Builder {
         private long testId;
         private String testName;
@@ -71,18 +73,22 @@ public class LabTest {
             this.testId = testId;
             return this;
         }
+
         public Builder testName(String testName) {
             this.testName = testName;
             return this;
         }
+
         public Builder testSampleDate(LocalDate testSampleDate) {
             this.testSampleDate = testSampleDate;
             return this;
         }
+
         public Builder testFee(BigDecimal testFee) {
             this.testFee = testFee;
             return this;
         }
+
         public Builder copy(LabTest lbt) {
             this.testId = lbt.testId;
             this.testName = lbt.testName;
@@ -90,6 +96,7 @@ public class LabTest {
             this.testFee = lbt.testFee;
             return this;
         }
+
         public LabTest build() {
             return new LabTest(this);
         }

@@ -1,58 +1,57 @@
 package za.ac.cput.entity.user;
 
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
  * Patient.java
  * Author: Curstin Rose - 220275408
- * Date: 5 April 2022
  */
-public class Patient
-{
+@Entity
+@Table(name = "patient")
+@NoArgsConstructor
+public class Patient {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long patientId;
     private String patientName;
     private String patientSurname;
 
-    public Patient(Builder builder)
-    {
+    public Patient(Builder builder) {
         this.patientId = builder.patientId;
         this.patientName = builder.patientName;
         this.patientSurname = builder.patientSurname;
     }
 
-    public Long getPatientId()
-    {
+    public Long getPatientId() {
         return patientId;
     }
 
-    public String getPatientName()
-    {
-        return patientName;
-    }
-
-    public String getPatientSurname()
-    {
-        return patientSurname;
-    }
-
-    public void setPatientId(Long patientId)
-    {
+    public void setPatientId(Long patientId) {
         this.patientId = patientId;
     }
 
-    public void setPatientName(String patientName)
-    {
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
         this.patientName = patientName;
     }
 
-    public void setPatientSurname(String patientSurname)
-    {
+    public String getPatientSurname() {
+        return patientSurname;
+    }
+
+    public void setPatientSurname(String patientSurname) {
         this.patientSurname = patientSurname;
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -65,8 +64,7 @@ public class Patient
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         int result = patientId != null ? patientId.hashCode() : 0;
         result = 31 * result + (patientName != null ? patientName.hashCode() : 0);
         result = 31 * result + (patientSurname != null ? patientSurname.hashCode() : 0);
@@ -74,8 +72,7 @@ public class Patient
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Patient{" +
                 "patientId=" + patientId +
                 ", patientName='" + patientName + '\'' +
@@ -83,32 +80,27 @@ public class Patient
                 '}';
     }
 
-    public static class Builder
-    {
+    public static class Builder {
         private Long patientId;
         private String patientName;
         private String patientSurname;
 
-        public Builder patientId(Long patientId)
-        {
+        public Builder patientId(Long patientId) {
             this.patientId = patientId;
             return this;
         }
 
-        public Builder patientName(String patientName)
-        {
+        public Builder patientName(String patientName) {
             this.patientName = patientName;
             return this;
         }
 
-        public Builder patientSurname(String patientSurname)
-        {
+        public Builder patientSurname(String patientSurname) {
             this.patientSurname = patientSurname;
             return this;
         }
 
-        public Builder copy(Patient patient)
-        {
+        public Builder copy(Patient patient) {
             this.patientId = patient.patientId;
             this.patientName = patient.patientName;
             this.patientSurname = patient.patientSurname;
@@ -116,8 +108,7 @@ public class Patient
             return this;
         }
 
-        public Patient build()
-        {
+        public Patient build() {
             return new Patient(this);
         }
     }

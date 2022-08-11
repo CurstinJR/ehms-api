@@ -13,7 +13,7 @@ public class Vitals {
     private String bloodPressure;
     private Double temperature;
 
-    private Vitals(Builder builder){
+    private Vitals(Builder builder) {
         this.vitalsId = builder.vitalsId;
         this.weight = builder.weight;
         this.height = builder.height;
@@ -25,36 +25,36 @@ public class Vitals {
         return vitalsId;
     }
 
-    public Double getWeight() {
-        return weight;
-    }
-
-    public Double getHeight() {
-        return height;
-    }
-
-    public String getBloodPressure() {
-        return bloodPressure;
-    }
-
-    public Double getTemperature() {
-        return temperature;
-    }
-
     public void setVitalsId(Long vitalsId) {
         this.vitalsId = vitalsId;
+    }
+
+    public Double getWeight() {
+        return weight;
     }
 
     public void setWeight(Double weight) {
         this.weight = weight;
     }
 
+    public Double getHeight() {
+        return height;
+    }
+
     public void setHeight(Double height) {
         this.height = height;
     }
 
+    public String getBloodPressure() {
+        return bloodPressure;
+    }
+
     public void setBloodPressure(String bloodPressure) {
         this.bloodPressure = bloodPressure;
+    }
+
+    public Double getTemperature() {
+        return temperature;
     }
 
     public void setTemperature(Double temperature) {
@@ -72,39 +72,39 @@ public class Vitals {
                 '}';
     }
 
-    public static class Builder{
+    public static class Builder {
         private Long vitalsId;
         private Double weight;
         private Double height;
         private String bloodPressure;
         private Double temperature;
 
-        public Builder vitalsId(Long vitalsId){
+        public Builder vitalsId(Long vitalsId) {
             this.vitalsId = vitalsId;
             return this;
         }
 
-        public Builder weight(Double weight){
+        public Builder weight(Double weight) {
             this.weight = weight;
             return this;
         }
 
-        public Builder height(Double height){
+        public Builder height(Double height) {
             this.height = height;
             return this;
         }
 
-        public Builder bloodPressure(String bloodPressure){
+        public Builder bloodPressure(String bloodPressure) {
             this.bloodPressure = bloodPressure;
             return this;
         }
 
-        public Builder temperature(Double temperature){
+        public Builder temperature(Double temperature) {
             this.temperature = temperature;
             return this;
         }
 
-        public Builder copy(Vitals vitals){
+        public Builder copy(Vitals vitals) {
             this.vitalsId = vitals.vitalsId;
             this.weight = vitals.weight;
             this.height = vitals.height;
@@ -113,7 +113,7 @@ public class Vitals {
             return this;
         }
 
-        public Vitals build(){
+        public Vitals build() {
             return new Vitals(this);
         }
     }
