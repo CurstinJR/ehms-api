@@ -1,7 +1,6 @@
 package za.ac.cput.factory.payment;
 
 import za.ac.cput.entity.payment.Bill;
-import za.ac.cput.util.Helper;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -12,14 +11,12 @@ import java.time.LocalDate;
  * Date: 8 April 2022
  */
 public class BillFactory {
-    public static Bill createBill(LocalDate billDate, BigDecimal billAmount, String billDescription) {
-        Long billId = Helper.generateId();
-
+    public static Bill createBill(Long billId, BigDecimal billAmount, String billDescription, LocalDate billDate) {
         return new Bill.Builder()
                 .billId(billId)
-                .billDate(billDate)
                 .billAmount(billAmount)
                 .billDescription(billDescription)
+                .billDate(billDate)
                 .build();
     }
 }

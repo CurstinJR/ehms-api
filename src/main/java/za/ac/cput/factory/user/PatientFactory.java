@@ -1,7 +1,6 @@
 package za.ac.cput.factory.user;
 
 import za.ac.cput.entity.user.Patient;
-import za.ac.cput.util.Helper;
 
 /**
  * PatientFactory.java
@@ -9,9 +8,7 @@ import za.ac.cput.util.Helper;
  * Date: 8 April 2022
  */
 public class PatientFactory {
-    public static Patient createPatient(String patientName, String patientSurname) {
-        Long patientId = Helper.generateId();
-
+    public static Patient createPatient(Long patientId, String patientName, String patientSurname) {
         return new Patient.Builder()
                 .patientId(patientId)
                 .patientName(patientName)

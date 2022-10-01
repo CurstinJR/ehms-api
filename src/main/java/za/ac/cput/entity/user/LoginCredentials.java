@@ -1,86 +1,71 @@
 package za.ac.cput.entity.user;
 
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Collections;
+
 /*
 LoginCredentials.java
 Author:Kevin Lionel Mombo Ndinga(218180500)
 Date: 07 April 2022
 */
-public class LoginCredentials {
+@Entity
+@Table(name = "login_credentials")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+public class LoginCredentials implements UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
+    private AppUserRole role;
 
-    private LoginCredentials(Builder builder) {
-        this.id = builder.id;
-        this.email = builder.email;
-        this.password = builder.password;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.name());
+        return Collections.singleton(authority);
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    @Override
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public String getUsername() {
+        return email;
     }
 
     @Override
-    public String toString() {
-        return "LoginCredentials{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public static class Builder {
-        private long id;
-        private String email;
-        private String password;
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
 
-        public Builder id(long id) {
-            this.id = id;
-            return this;
-        }
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
 
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public Builder password(String password) {
-            this.password = password;
-            return this;
-        }
-
-        public Builder copy(LoginCredentials log) {
-            this.id = log.id;
-            this.email = log.email;
-            this.password = log.password;
-            return this;
-
-        }
-
-        public LoginCredentials build() {
-            return new LoginCredentials(this);
-        }
-
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
 

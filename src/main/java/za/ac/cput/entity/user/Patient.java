@@ -6,8 +6,9 @@ import javax.persistence.*;
 import java.util.Objects;
 
 /**
+ * @Author Curstin Rose - 220275408
  * Patient.java
- * Author: Curstin Rose - 220275408
+ * 2022/10/01
  */
 @Entity
 @Table(name = "patient")
@@ -15,7 +16,7 @@ import java.util.Objects;
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long patientId;
     private String patientName;
     private String patientSurname;
