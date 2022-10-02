@@ -17,12 +17,12 @@ class PatientTest {
 
     @BeforeEach
     void setUp() {
-        patientZero = new Patient.Builder()
+        patientZero = Patient.builder()
                 .patientId(100L)
                 .patientName("Quinn")
                 .build();
 
-        patientOne = new Patient.Builder()
+        patientOne = Patient.builder()
                 .patientId(101L)
                 .patientSurname("Frost")
                 .build();
@@ -30,10 +30,7 @@ class PatientTest {
 
     @Test
     public void patientBuilderTest_shouldEqual() {
-        patientOne = new Patient.Builder()
-                .copy(patientZero)
-                .build();
-
+        patientOne = patientZero;
         assertEquals(patientZero, patientOne);
     }
 
@@ -51,21 +48,17 @@ class PatientTest {
 
     @Test
     public void patientBuilderTest_shouldNotBeSame() {
-        patientOne = new Patient.Builder()
-                .copy(patientZero)
-                .build();
-
         assertNotSame(patientZero, patientOne);
     }
 
     @Test
     public void patientBuilderTest_shouldNotEqualHash() {
         for (long i = 0L; i < 100L; i++) {
-            Patient patient1 = new Patient.Builder()
+            Patient patient1 = Patient.builder()
                     .patientId(i)
                     .build();
 
-            Patient patient2 = new Patient.Builder()
+            Patient patient2 = Patient.builder()
                     .patientId(i + 1)
                     .build();
 
@@ -75,10 +68,7 @@ class PatientTest {
 
     @Test
     public void patientBuilderTest_shouldEqualHash() {
-        patientOne = new Patient.Builder()
-                .copy(patientZero)
-                .build();
-
+        patientOne = patientZero;
         assertEquals(patientZero, patientOne);
     }
 }

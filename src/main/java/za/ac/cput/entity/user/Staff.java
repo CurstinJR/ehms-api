@@ -5,13 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 
 /*
-
-AUTHOR Chantal Niyonzima
-Student Number 217267815
-Date April 9 2022
+Employee.java
+Author: Tarren-Marc Adams - 214041794
+Date: 6 April 2022
  */
 @Entity
-@Table(name = "role")
+@Table(name = "staff")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -19,10 +18,13 @@ Date April 9 2022
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Role {
+public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String description;
+    private String firstName;
+    private String lastName;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 }

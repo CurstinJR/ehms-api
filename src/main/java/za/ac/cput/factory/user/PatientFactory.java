@@ -8,11 +8,11 @@ import za.ac.cput.entity.user.Patient;
  * Date: 8 April 2022
  */
 public class PatientFactory {
-    public static Patient createPatient(Long patientId, String patientName, String patientSurname) {
-        return new Patient.Builder()
-                .patientId(patientId)
-                .patientName(patientName)
-                .patientSurname(patientSurname)
+    public static Patient createPatient(Long id, String firstName, String lastName) {
+        return Patient.builder()
+                .patientId(id)
+                .patientName(firstName)
+                .patientSurname(lastName)
                 .build();
     }
 }
