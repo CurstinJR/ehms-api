@@ -23,7 +23,8 @@ public class WebSecurityConfig {
     private final CustomUserDetailsService customUserDetailsService;
 
     @Autowired
-    public WebSecurityConfig(BCryptPasswordEncoder passwordEncoder, CustomUserDetailsService customUserDetailsService) {
+    public WebSecurityConfig(BCryptPasswordEncoder passwordEncoder,
+                             CustomUserDetailsService customUserDetailsService) {
         this.passwordEncoder = passwordEncoder;
         this.customUserDetailsService = customUserDetailsService;
     }
@@ -35,8 +36,11 @@ public class WebSecurityConfig {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/**")
-                .hasAuthority("ADMIN")
+                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/patients/**")
+                .hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "RECEPTIONISTS")
+                .antMatchers("/api/bills/**")
+                .hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONISTS")
                 .and()
                 .httpBasic();
         return httpSecurity.build();

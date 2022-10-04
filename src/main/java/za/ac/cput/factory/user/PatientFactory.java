@@ -10,9 +10,9 @@ import za.ac.cput.entity.user.Patient;
 public class PatientFactory {
     public static Patient createPatient(Long id, String firstName, String lastName) {
         return Patient.builder()
-                .patientId(id)
-                .patientName(firstName)
-                .patientSurname(lastName)
+                .id(id)
+                .firstName(firstName)
+                .lastName(lastName)
                 .build();
     }
 }

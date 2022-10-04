@@ -1,8 +1,12 @@
 package za.ac.cput.entity.user;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /*
 Employee.java
@@ -10,20 +14,14 @@ Author: Tarren-Marc Adams - 214041794
 Date: 6 April 2022
  */
 @Entity
-@Table(name = "staff")
+@Table(name = "employee")
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
-public class Staff {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String firstName;
-    private String lastName;
+public class Employee extends BaseUser {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;

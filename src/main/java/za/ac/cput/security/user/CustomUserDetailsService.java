@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.user.LoginCredentials;
-import za.ac.cput.entity.user.Staff;
-import za.ac.cput.repository.StaffRepository;
+import za.ac.cput.entity.user.Employee;
+import za.ac.cput.repository.user.EmployeeRepository;
 import za.ac.cput.repository.user.LoginCredentialsRepository;
 
 /**
@@ -18,13 +18,13 @@ import za.ac.cput.repository.user.LoginCredentialsRepository;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
     private final LoginCredentialsRepository loginCredentialsRepository;
-    private final StaffRepository staffRepository;
+    private final EmployeeRepository employeeRepository;
 
     @Autowired
     public CustomUserDetailsService(LoginCredentialsRepository loginCredentialsRepository,
-                                    StaffRepository staffRepository) {
+                                    EmployeeRepository employeeRepository) {
         this.loginCredentialsRepository = loginCredentialsRepository;
-        this.staffRepository = staffRepository;
+        this.employeeRepository = employeeRepository;
     }
 
     @Override
@@ -33,12 +33,12 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .findByEmail(email)
                 .orElseThrow(() ->
                         new UsernameNotFoundException(String.format("User with email %s not found", email)));
-        Staff staff = staffRepository.findById(loginCredentials.getStaff().getId()).orElseThrow();
+        Employee employee = employeeRepository.findById(loginCredentials.getEmployee().getId()).orElseThrow();
         return CustomUserDetails.builder()
-                .id(staff.getId())
+                .id(employee.getId())
                 .email(loginCredentials.getEmail())
                 .password(loginCredentials.getPassword())
-                .role(staff.getRole())
+                .role(employee.getRole())
                 .build();
     }
 }

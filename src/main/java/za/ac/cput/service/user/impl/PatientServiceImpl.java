@@ -28,8 +28,8 @@ public class PatientServiceImpl implements IPatientService {
     @Override
     public Optional<Patient> update(Long id, Patient newPatient) {
         return findById(id).map(patient -> {
-            String name = newPatient.getPatientName();
-            String surname = newPatient.getPatientSurname();
+            String name = newPatient.getFirstName();
+            String surname = newPatient.getLastName();
             patient = PatientFactory.createPatient(id, name, surname);
             return save(patient);
         });

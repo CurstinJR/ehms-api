@@ -18,13 +18,13 @@ class PatientTest {
     @BeforeEach
     void setUp() {
         patientZero = Patient.builder()
-                .patientId(100L)
-                .patientName("Quinn")
+                .id(100L)
+                .firstName("Quinn")
                 .build();
 
         patientOne = Patient.builder()
-                .patientId(101L)
-                .patientSurname("Frost")
+                .id(101L)
+                .lastName("Frost")
                 .build();
     }
 
@@ -55,11 +55,11 @@ class PatientTest {
     public void patientBuilderTest_shouldNotEqualHash() {
         for (long i = 0L; i < 100L; i++) {
             Patient patient1 = Patient.builder()
-                    .patientId(i)
+                    .id(i)
                     .build();
 
             Patient patient2 = Patient.builder()
-                    .patientId(i + 1)
+                    .id(i + 1)
                     .build();
 
             assertNotEquals(patient1.hashCode(), patient2.hashCode());

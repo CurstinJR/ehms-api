@@ -1,8 +1,10 @@
 package za.ac.cput.entity.user;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * @Author Curstin Rose - 220275408
@@ -12,16 +14,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "patient")
 @AllArgsConstructor
-@NoArgsConstructor
-@Builder
+@SuperBuilder
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
-public class Patient {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long patientId;
-    private String patientName;
-    private String patientSurname;
+public class Patient extends BaseUser {
 }

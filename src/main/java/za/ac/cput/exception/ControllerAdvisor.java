@@ -2,6 +2,8 @@ package za.ac.cput.exception;
 
 import com.sanctionco.jmail.InvalidEmailException;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -97,6 +99,26 @@ public class ControllerAdvisor {
     public ErrorResponse globalExceptionHandler(Exception ex, WebRequest request) {
         return new ErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                LocalDateTime.now(),
+                ex.getMessage(),
+                request.getDescription(false));
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    public ErrorResponse accessDeniedExceptionHandler(AccessDeniedException ex, WebRequest request) {
+        return new ErrorResponse(
+                HttpStatus.UNAUTHORIZED.value(),
+                LocalDateTime.now(),
+                ex.getMessage(),
+                request.getDescription(false));
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    public ErrorResponse badCredentialsExceptionHandler(BadCredentialsException ex, WebRequest request) {
+        return new ErrorResponse(
+                HttpStatus.UNAUTHORIZED.value(),
                 LocalDateTime.now(),
                 ex.getMessage(),
                 request.getDescription(false));

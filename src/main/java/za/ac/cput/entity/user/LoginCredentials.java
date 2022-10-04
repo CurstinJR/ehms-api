@@ -25,7 +25,7 @@ public class LoginCredentials {
     private String email;
     private String password;
     @OneToOne
-    @JoinColumn(name = "staff_id")
-    private Staff staff;
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 }
 
