@@ -1,7 +1,7 @@
 package za.ac.cput.factory.user;
 
 import za.ac.cput.entity.user.Employee;
-import za.ac.cput.util.Helper;
+import za.ac.cput.entity.user.Role;
 
 /*
 EmployeeFactory.java
@@ -10,14 +10,11 @@ Date: 9 April 2022
  */
 
 public class EmployeeFactory {
-
-    public static Employee createEmployee(String employeeName, String employeeSurname) {
-
-        Long employeeId = Helper.generateId();
-
-        return new Employee.Builder().employeeId(employeeId)
-                .employeeName(employeeName)
-                .employeeSurname(employeeSurname)
+    public static Employee createEmployee(Long id, String firstName, String lastName, Role role) {
+        return Employee.builder().id(id)
+                .firstName(firstName)
+                .lastName(lastName)
+                .role(role)
                 .build();
     }
 }

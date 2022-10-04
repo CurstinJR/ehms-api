@@ -1,7 +1,6 @@
 package za.ac.cput.factory.payment;
 
 import za.ac.cput.entity.payment.MedicalAid;
-import za.ac.cput.util.Helper;
 
 import java.time.LocalDate;
 
@@ -11,15 +10,14 @@ import java.time.LocalDate;
  * Date: 8 April 2022
  */
 public class MedicalAidFactory {
-    public static MedicalAid createMedicalAid(String claimType, LocalDate claimDate,
-                                              long medicalAidNo, String medicalAidName) {
-        Long claimId = Helper.generateId();
+    public static MedicalAid createMedicalAid(Long claimId, LocalDate claimDate, String claimType,
+                                              String medicalAidName, long medicalAidNo) {
         return new MedicalAid.Builder()
                 .claimId(claimId)
-                .claimType(claimType)
                 .claimDate(claimDate)
-                .medicalAidNo(medicalAidNo)
+                .claimType(claimType)
                 .medicalAidName(medicalAidName)
+                .medicalAidNo(medicalAidNo)
                 .build();
     }
 

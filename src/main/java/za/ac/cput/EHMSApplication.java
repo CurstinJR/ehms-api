@@ -1,7 +1,6 @@
 package za.ac.cput;
 
 /*
-ADP3: Assignment 1
 Authors:
     Curstin Rose - 220275408
     Chantal Niyonzima - 217267815

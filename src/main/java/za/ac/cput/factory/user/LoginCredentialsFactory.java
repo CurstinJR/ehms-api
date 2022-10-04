@@ -19,7 +19,7 @@ public class LoginCredentialsFactory {
         if (Helper.isNullorEmpty(password))
             return null;
 
-        return new LoginCredentials.Builder().id(id)
+        return LoginCredentials.builder().id(id)
                 .email(email)
                 .password(password)
                 .build();

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class PatientFactoryTest {
     @Test
     void createPatientFactoryTest() {
-        Patient patient = PatientFactory.createPatient("Patient", "Zero");
+        Patient patient = PatientFactory.createPatient(1L, "Patient", "Zero");
 
         assertNotNull(patient);
     }

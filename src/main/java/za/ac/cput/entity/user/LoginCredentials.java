@@ -1,86 +1,31 @@
 package za.ac.cput.entity.user;
 
+import lombok.*;
+
+import javax.persistence.*;
+
 /*
 LoginCredentials.java
 Author:Kevin Lionel Mombo Ndinga(218180500)
 Date: 07 April 2022
 */
+@Entity
+@Table(name = "login_credentials")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class LoginCredentials {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String email;
     private String password;
-
-    private LoginCredentials(Builder builder) {
-        this.id = builder.id;
-        this.email = builder.email;
-        this.password = builder.password;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "LoginCredentials{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
-
-    public static class Builder {
-        private long id;
-        private String email;
-        private String password;
-
-        public Builder id(long id) {
-            this.id = id;
-            return this;
-        }
-
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public Builder password(String password) {
-            this.password = password;
-            return this;
-        }
-
-        public Builder copy(LoginCredentials log) {
-            this.id = log.id;
-            this.email = log.email;
-            this.password = log.password;
-            return this;
-
-        }
-
-        public LoginCredentials build() {
-            return new LoginCredentials(this);
-        }
-
-    }
+    @OneToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 }
 

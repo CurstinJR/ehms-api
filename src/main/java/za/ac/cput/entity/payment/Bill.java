@@ -8,8 +8,9 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
+ * @Author Curstin Rose - 220275408
  * Bill.java
- * Author: Curstin Rose - 220275408
+ * 2022/10/01
  */
 @Entity
 @Table(name = "bill")
@@ -17,7 +18,7 @@ import java.util.Objects;
 public class Bill {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long billId;
     private BigDecimal billAmount;
     private String billDescription;

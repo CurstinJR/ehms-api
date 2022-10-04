@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Author: Curstin Rose - 220275408
  * Date: 6 April 2022
  */
-class MedicalAidTest {
+class MedicalAidRepositoryTest {
     MedicalAid medicalAid1;
     MedicalAid medicalAid2;
 
