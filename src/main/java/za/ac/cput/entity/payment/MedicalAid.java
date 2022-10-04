@@ -7,8 +7,9 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
+ * @Author Curstin Rose - 220275408
  * MedicalAid.java
- * Author: Curstin Rose - 220275408
+ * 2022/10/01
  */
 @Entity
 @Table(name = "medical_aid")
@@ -16,7 +17,7 @@ import java.util.Objects;
 public class MedicalAid {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long claimId;
     private LocalDate claimDate;
     private String claimType;

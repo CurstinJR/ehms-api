@@ -17,23 +17,20 @@ class PatientTest {
 
     @BeforeEach
     void setUp() {
-        patientZero = new Patient.Builder()
-                .patientId(100L)
-                .patientName("Quinn")
+        patientZero = Patient.builder()
+                .id(100L)
+                .firstName("Quinn")
                 .build();
 
-        patientOne = new Patient.Builder()
-                .patientId(101L)
-                .patientSurname("Frost")
+        patientOne = Patient.builder()
+                .id(101L)
+                .lastName("Frost")
                 .build();
     }
 
     @Test
     public void patientBuilderTest_shouldEqual() {
-        patientOne = new Patient.Builder()
-                .copy(patientZero)
-                .build();
-
+        patientOne = patientZero;
         assertEquals(patientZero, patientOne);
     }
 
@@ -51,22 +48,18 @@ class PatientTest {
 
     @Test
     public void patientBuilderTest_shouldNotBeSame() {
-        patientOne = new Patient.Builder()
-                .copy(patientZero)
-                .build();
-
         assertNotSame(patientZero, patientOne);
     }
 
     @Test
     public void patientBuilderTest_shouldNotEqualHash() {
         for (long i = 0L; i < 100L; i++) {
-            Patient patient1 = new Patient.Builder()
-                    .patientId(i)
+            Patient patient1 = Patient.builder()
+                    .id(i)
                     .build();
 
-            Patient patient2 = new Patient.Builder()
-                    .patientId(i + 1)
+            Patient patient2 = Patient.builder()
+                    .id(i + 1)
                     .build();
 
             assertNotEquals(patient1.hashCode(), patient2.hashCode());
@@ -75,10 +68,7 @@ class PatientTest {
 
     @Test
     public void patientBuilderTest_shouldEqualHash() {
-        patientOne = new Patient.Builder()
-                .copy(patientZero)
-                .build();
-
+        patientOne = patientZero;
         assertEquals(patientZero, patientOne);
     }
 }

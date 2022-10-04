@@ -17,8 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class BillFactoryTest {
     @Test
     void createBillTest() {
-        Bill bill = BillFactory.createBill(LocalDate.of(2022, 6, 17),
-                BigDecimal.valueOf(1689.99), "Bill for 3 cough syrups");
+        Bill bill = BillFactory.createBill(1L,
+                BigDecimal.valueOf(1689.99),
+                "Bill for 3 cough syrups",
+                LocalDate.of(2022, 6, 17));
 
         assertNotNull(bill);
     }
