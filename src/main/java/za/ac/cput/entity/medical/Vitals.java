@@ -1,12 +1,20 @@
 package za.ac.cput.entity.medical;
 
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
 /*
 Vitals.java
 Author: Tarren-Marc Adams - 214041794
 Date: 7 April 2022
  */
-
+@Entity
+@Table(name = "vitals")
+@NoArgsConstructor
 public class Vitals {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vitalsId;
     private Double weight;
     private Double height;
