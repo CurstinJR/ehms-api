@@ -32,7 +32,7 @@ public class EmployeeController {
         return ResponseEntity.ok(employee);
     }
     @PostMapping
-    public ResponseEntity<Employee> addPatient(@RequestBody final Employee employee) {
+    public ResponseEntity<Employee> addEmployee(@RequestBody final Employee employee) {
         Employee saveEmployee = employeeService.save(employee);
         return new ResponseEntity<>(saveEmployee, HttpStatus.CREATED);
     }
