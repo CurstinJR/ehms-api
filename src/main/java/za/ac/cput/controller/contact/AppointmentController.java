@@ -10,6 +10,12 @@ import za.ac.cput.service.contact.Impl.AppointmentServiceImpl;
 
 import java.util.List;
 
+/*
+AppointmentController.java
+Author: Tarren-Marc Adams - 214041794
+Date: 6/10/2022
+ */
+
 @RestController
 @RequestMapping("/api/appointments")
 public class AppointmentController {

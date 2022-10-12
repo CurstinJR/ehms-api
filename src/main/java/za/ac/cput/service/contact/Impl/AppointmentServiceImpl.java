@@ -10,6 +10,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+/*
+AppointmentServiceImpl.java
+Author: Tarren-Marc Adams - 214041794
+Date: 2/10/2022
+ */
+
 @Service
 public class AppointmentServiceImpl implements IAppointmentService {
 

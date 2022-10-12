@@ -8,9 +8,14 @@ import za.ac.cput.entity.user.Role;
 import za.ac.cput.factory.user.EmployeeFactory;
 import za.ac.cput.repository.user.EmployeeRepository;
 import za.ac.cput.service.user.IEmployeeService;
-
 import java.util.List;
 import java.util.Optional;
+
+/*
+EmployeeServiceImpl.java
+Author: Tarren-Marc Adams - 214041794
+Date: 2/10/2022
+ */
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService {

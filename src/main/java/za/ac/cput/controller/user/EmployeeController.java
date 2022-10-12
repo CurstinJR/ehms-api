@@ -10,6 +10,12 @@ import za.ac.cput.service.user.impl.EmployeeServiceImpl;
 
 import java.util.List;
 
+/*
+EmployeeController.java
+Author: Tarren-Marc Adams - 214041794
+Date: 6/10/2022
+ */
+
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {

@@ -10,6 +10,12 @@ import za.ac.cput.service.medical.IVitalsService;
 import java.util.List;
 import java.util.Optional;
 
+/*
+VitalsServiceImpl.java
+Author: Tarren-Marc Adams - 214041794
+Date: 2/10/2022
+ */
+
 @Service
 public class VitalsServiceImpl implements IVitalsService {
 
