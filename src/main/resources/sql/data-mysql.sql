@@ -12,6 +12,13 @@ VALUES (1, 'Joe', 'Roe', 1),
        (4, 'Zack', 'Synder', 4),
        (5, 'Ruby', 'Flame', 5);
 
+INSERT INTO patient (`id`, `first_name`, `last_name`)
+VALUES (1, 'Joe', 'Roe'),
+       (2, 'Jack', 'Ross'),
+       (3, 'Sarah', 'Flem'),
+       (4, 'Zack', 'Synder'),
+       (5, 'Ruby', 'Flame');
+
 INSERT INTO login_credentials (`id`, `email`, `password`, `employee_id`)
 VALUES (1, 'joe@email.com', '$2a$12$P4PEgsHUUdpy4Eg2pZ5EAOkmsaKPkH9oNxQko3kVNBtSB.uNmdWRe', 1),
        (2, 'jack@email.com', '$2a$12$RHOBI1hXxiEsccmJSLiJJuzB8F.mF./aRIFmCq1kYo5k0QimjY9VS', 2),
