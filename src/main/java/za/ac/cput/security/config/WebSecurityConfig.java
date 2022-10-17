@@ -44,10 +44,8 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/api/patients/**")
-                .hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "RECEPTIONISTS")
-                .antMatchers("/api/bills/**")
-                .hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONISTS")
+                .antMatchers("/api/patients/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "RECEPTIONIST")
+                .antMatchers("/api/bills/**").hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONIST")
                 .and()
                 .httpBasic();
         return httpSecurity.build();

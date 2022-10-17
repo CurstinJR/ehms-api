@@ -1,5 +1,6 @@
 package za.ac.cput.security.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,6 +21,7 @@ import java.util.Collections;
 public class CustomUserDetails implements UserDetails {
     private Long id;
     private String email;
+    @JsonIgnore
     private String password;
     private Role role;
 
