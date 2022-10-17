@@ -16,7 +16,7 @@ class VitalsFactoryTest {
 
     @Test
     public void addVitals() {
-        Vitals vitals = VitalsFactory.createVitals(65.78, 1.56, "High-130", 46.7);
+        Vitals vitals = VitalsFactory.createVitals(1L,65.78, 1.56, "High-130", 46.7);
         assertNotNull(vitals);
     }
 

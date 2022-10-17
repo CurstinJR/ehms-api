@@ -13,10 +13,7 @@ Date: 9 April 2022
 
 public class AppointmentFactory {
 
-    public static Appointment createApppointment(String appointmentTime, LocalDate appointmentDate) {
-
-        Long appointmentId = Helper.generateId();
-
+    public static Appointment createAppointment(Long appointmentId, String appointmentTime, LocalDate appointmentDate) {
         return new Appointment.Builder().appointmentId(appointmentId)
                 .appointmentTime(appointmentTime)
                 .appointmentDate(appointmentDate)

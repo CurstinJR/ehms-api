@@ -1,5 +1,8 @@
 package za.ac.cput.entity.contact;
 
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /*
@@ -7,8 +10,12 @@ Appointment.java
 Author: Tarren-Marc Adams - 214041794
 Date: 6 April 2022
  */
-
+@Entity
+@Table(name = "appointment")
+@NoArgsConstructor
 public class Appointment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long appointmentId;
     private String appointmentTime;
     private LocalDate appointmentDate;
