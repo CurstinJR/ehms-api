@@ -12,7 +12,7 @@ Date: 10 April 2022
 public class VitalsFactory {
     public static Vitals createVitals(Long vitalsId,Double weight, Double height, String bloodPressure, Double temperature) {
 
-        return new Vitals.Builder()
+        return  Vitals.builder()
                 .vitalsId(vitalsId)
                 .weight(weight)
                 .height(height)

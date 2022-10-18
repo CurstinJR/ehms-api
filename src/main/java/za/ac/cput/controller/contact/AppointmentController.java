@@ -43,9 +43,9 @@ public class AppointmentController {
     }
     @PutMapping("/{id}")
     public ResponseEntity<Appointment> updateAppointmentById(@PathVariable final Long id,
-                                                       @RequestBody final Appointment patient) {
+                                                       @RequestBody final Appointment appointment) {
         String notFoundMessage = getNotFoundMessage(id);
-        Appointment updateAppointment = appointmentService.update(id, patient)
+        Appointment updateAppointment = appointmentService.update(id, appointment)
                 .orElseThrow(() -> new ResourceNotFoundException(notFoundMessage));
         return ResponseEntity.ok(updateAppointment);
     }

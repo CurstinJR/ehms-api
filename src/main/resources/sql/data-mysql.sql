@@ -19,6 +19,16 @@ VALUES (1, 'Joe', 'Roe'),
        (4, 'Zack', 'Synder'),
        (5, 'Ruby', 'Flame');
 
+INSERT INTO vitals (vitals_id, blood_pressure, height, temperature, weight, patient_id)
+VALUE (1, 'Normal', 165, 37.4, 78.6, 1),
+      (2, 'Normal', 170, 35.4, 80.5, 2),
+      (3, 'Normal', 170, 35.4, 80.5, 3);
+
+INSERT INTO appointment (appointment_id, appointment_date, appointment_time, patient_id)
+VALUE (1,CURRENT_DATE,CURRENT_TIME,1),
+      (2,CURRENT_DATE,CURRENT_TIME,1),
+      (3,CURRENT_DATE,CURRENT_TIME,2);
+
 INSERT INTO login_credentials (`id`, `email`, `password`, `employee_id`)
 VALUES (1, 'joe@email.com', '$2a$12$P4PEgsHUUdpy4Eg2pZ5EAOkmsaKPkH9oNxQko3kVNBtSB.uNmdWRe', 1),
        (2, 'jack@email.com', '$2a$12$RHOBI1hXxiEsccmJSLiJJuzB8F.mF./aRIFmCq1kYo5k0QimjY9VS', 2),

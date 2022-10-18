@@ -46,6 +46,8 @@ public class WebSecurityConfig {
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/patients/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "RECEPTIONIST")
                 .antMatchers("/api/bills/**").hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONIST")
+                .antMatchers("/api/vitals/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE")
+                .antMatchers("/api/appointments/**").hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONIST")
                 .and()
                 .httpBasic();
         return httpSecurity.build();
