@@ -22,10 +22,14 @@ public class VitalsServiceImpl implements IVitalsService {
     private final VitalsRepository vitalsRepository;
 
     @Autowired
-    public VitalsServiceImpl(VitalsRepository vitalsRepository){this.vitalsRepository = vitalsRepository;}
+    public VitalsServiceImpl(VitalsRepository vitalsRepository) {
+        this.vitalsRepository = vitalsRepository;
+    }
 
     @Override
-    public Vitals save(Vitals vitals){return vitalsRepository.save(vitals);}
+    public Vitals save(Vitals vitals) {
+        return vitalsRepository.save(vitals);
+    }
 
     @Override
     public Optional<Vitals> update(Long id, Vitals newVitals) {
@@ -55,9 +59,13 @@ public class VitalsServiceImpl implements IVitalsService {
 
     }
 
-
     @Override
     public boolean existsById(Long id) {
         return vitalsRepository.existsById(id);
+    }
+
+    @Override
+    public Optional<Vitals> findVitalsByPatientId(Long id) {
+        return vitalsRepository.findVitalsByPatientId(id);
     }
 }

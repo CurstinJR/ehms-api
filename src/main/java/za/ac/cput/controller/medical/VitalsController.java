@@ -22,13 +22,16 @@ public class VitalsController {
     private final VitalsServiceImpl vitalsService;
 
     @Autowired
-    public VitalsController(VitalsServiceImpl vitalsService){this.vitalsService=vitalsService;}
+    public VitalsController(VitalsServiceImpl vitalsService) {
+        this.vitalsService = vitalsService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Vitals>> getVitals() {
         List<Vitals> vitals = vitalsService.findAll();
         return ResponseEntity.ok(vitals);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getVitalsById(@PathVariable final Long id) {
         String notFoundMessage = getNotFoundMessage(id);
@@ -36,19 +39,22 @@ public class VitalsController {
                 .orElseThrow(() -> new ResourceNotFoundException(notFoundMessage));
         return ResponseEntity.ok(vitals);
     }
+
     @PostMapping
     public ResponseEntity<Vitals> addVitals(@RequestBody final Vitals vitals) {
         Vitals saveVitals = vitalsService.save(vitals);
         return new ResponseEntity<>(saveVitals, HttpStatus.CREATED);
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<Vitals> updateVitalsById(@PathVariable final Long id,
-                                                             @RequestBody final Vitals vitals) {
+                                                   @RequestBody final Vitals vitals) {
         String notFoundMessage = getNotFoundMessage(id);
         Vitals updateVitals = vitalsService.update(id, vitals)
                 .orElseThrow(() -> new ResourceNotFoundException(notFoundMessage));
         return ResponseEntity.ok(updateVitals);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteVitalsById(@PathVariable final Long id) {
         if (!vitalsService.existsById(id)) {
@@ -57,6 +63,14 @@ public class VitalsController {
         }
         vitalsService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/patient/{id}")
+    public ResponseEntity<?> getVitalsByPatientId(@PathVariable final Long id) {
+        String notFoundMessage = getNotFoundMessage(id);
+        Vitals vitals = vitalsService.findVitalsByPatientId(id)
+                .orElseThrow(() -> new ResourceNotFoundException(notFoundMessage));
+        return ResponseEntity.ok(vitals);
     }
 
     private String getNotFoundMessage(final Long id) {

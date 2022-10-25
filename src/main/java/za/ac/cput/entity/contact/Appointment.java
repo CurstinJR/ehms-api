@@ -25,11 +25,7 @@ public class Appointment {
     private Long appointmentId;
     private String appointmentTime;
     private LocalDate appointmentDate;
-
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
-
-
-
 }

@@ -26,9 +26,7 @@ public class Vitals {
     private Double height;
     private String bloodPressure;
     private Double temperature;
-
     @OneToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
-
 }
