@@ -3,6 +3,7 @@ package za.ac.cput.entity.user;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /*
 
@@ -19,7 +20,7 @@ Date April 9 2022
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Role {
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

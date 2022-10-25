@@ -8,6 +8,7 @@ import za.ac.cput.entity.user.Role;
 import za.ac.cput.factory.user.EmployeeFactory;
 import za.ac.cput.repository.user.EmployeeRepository;
 import za.ac.cput.service.user.IEmployeeService;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -23,11 +24,14 @@ public class EmployeeServiceImpl implements IEmployeeService {
     private final EmployeeRepository employeeRepository;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository){
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
+
     @Override
-    public Employee save(Employee employee){return employeeRepository.save(employee);}
+    public Employee save(Employee employee) {
+        return employeeRepository.save(employee);
+    }
 
     @Override
     public Optional<Employee> update(Long id, Employee newEmployee) {

@@ -15,7 +15,6 @@ EmployeeController.java
 Author: Tarren-Marc Adams - 214041794
 Date: 6/10/2022
  */
-
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
@@ -23,13 +22,16 @@ public class EmployeeController {
     private final EmployeeServiceImpl employeeService;
 
     @Autowired
-    public EmployeeController(EmployeeServiceImpl employeeService){this.employeeService=employeeService;}
+    public EmployeeController(EmployeeServiceImpl employeeService) {
+        this.employeeService = employeeService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Employee>> getEmployees() {
         List<Employee> employees = employeeService.findAll();
         return ResponseEntity.ok(employees);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getEmployeeById(@PathVariable final Long id) {
         String notFoundMessage = getNotFoundMessage(id);
@@ -37,19 +39,22 @@ public class EmployeeController {
                 .orElseThrow(() -> new ResourceNotFoundException(notFoundMessage));
         return ResponseEntity.ok(employee);
     }
+
     @PostMapping
     public ResponseEntity<Employee> addEmployee(@RequestBody final Employee employee) {
         Employee saveEmployee = employeeService.save(employee);
         return new ResponseEntity<>(saveEmployee, HttpStatus.CREATED);
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployeeById(@PathVariable final Long id,
-                                                     @RequestBody final Employee employee) {
+                                                       @RequestBody final Employee employee) {
         String notFoundMessage = getNotFoundMessage(id);
         Employee updateEmployee = employeeService.update(id, employee)
                 .orElseThrow(() -> new ResourceNotFoundException(notFoundMessage));
         return ResponseEntity.ok(updateEmployee);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteEmployeeById(@PathVariable final Long id) {
         if (!employeeService.existsById(id)) {
