@@ -2,9 +2,9 @@ package za.ac.cput.entity.user;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import za.ac.cput.entity.medical.Vitals;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @Author Curstin Rose - 220275408

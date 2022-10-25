@@ -55,6 +55,8 @@ public class WebSecurityConfig {
                 .antMatchers("/api/employees/**").hasAnyAuthority("ADMIN")
                 // bills
                 .antMatchers("/api/bills/**").hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONIST")
+                .antMatchers("/api/vitals/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE")
+                .antMatchers("/api/appointments/**").hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONIST")
                 .and()
                 .httpBasic();
         return httpSecurity.build();

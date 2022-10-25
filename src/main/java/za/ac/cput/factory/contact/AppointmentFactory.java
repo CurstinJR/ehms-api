@@ -14,7 +14,7 @@ Date: 9 April 2022
 public class AppointmentFactory {
 
     public static Appointment createAppointment(Long appointmentId, String appointmentTime, LocalDate appointmentDate) {
-        return new Appointment.Builder().appointmentId(appointmentId)
+        return   Appointment.builder().appointmentId(appointmentId)
                 .appointmentTime(appointmentTime)
                 .appointmentDate(appointmentDate)
                 .build();

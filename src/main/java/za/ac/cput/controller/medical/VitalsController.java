@@ -43,9 +43,9 @@ public class VitalsController {
     }
     @PutMapping("/{id}")
     public ResponseEntity<Vitals> updateVitalsById(@PathVariable final Long id,
-                                                             @RequestBody final Vitals patient) {
+                                                             @RequestBody final Vitals vitals) {
         String notFoundMessage = getNotFoundMessage(id);
-        Vitals updateVitals = vitalsService.update(id, patient)
+        Vitals updateVitals = vitalsService.update(id, vitals)
                 .orElseThrow(() -> new ResourceNotFoundException(notFoundMessage));
         return ResponseEntity.ok(updateVitals);
     }
