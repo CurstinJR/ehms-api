@@ -6,11 +6,14 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import za.ac.cput.entity.user.LoginCredentials;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author Curstin Rose - 220275408
@@ -35,5 +38,12 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return ResponseEntity.ok(auth.getPrincipal());
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser(HttpServletRequest request) {
+        SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
+        securityContextLogoutHandler.logout(request, null, null);
+        return ResponseEntity.ok(securityContextLogoutHandler.isInvalidateHttpSession());
     }
 }
