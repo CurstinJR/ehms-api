@@ -22,13 +22,16 @@ public class AppointmentController {
     private final AppointmentServiceImpl appointmentService;
 
     @Autowired
-    public AppointmentController(AppointmentServiceImpl appointmentService){this.appointmentService=appointmentService;}
+    public AppointmentController(AppointmentServiceImpl appointmentService) {
+        this.appointmentService = appointmentService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Appointment>> getAppointments() {
         List<Appointment> appointments = appointmentService.findAll();
         return ResponseEntity.ok(appointments);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getAppointmentById(@PathVariable final Long id) {
         String notFoundMessage = getNotFoundMessage(id);
@@ -36,19 +39,22 @@ public class AppointmentController {
                 .orElseThrow(() -> new ResourceNotFoundException(notFoundMessage));
         return ResponseEntity.ok(appointment);
     }
+
     @PostMapping
     public ResponseEntity<Appointment> addAppointment(@RequestBody final Appointment appointment) {
         Appointment saveAppointment = appointmentService.save(appointment);
         return new ResponseEntity<>(saveAppointment, HttpStatus.CREATED);
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<Appointment> updateAppointmentById(@PathVariable final Long id,
-                                                       @RequestBody final Appointment appointment) {
+                                                             @RequestBody final Appointment appointment) {
         String notFoundMessage = getNotFoundMessage(id);
         Appointment updateAppointment = appointmentService.update(id, appointment)
                 .orElseThrow(() -> new ResourceNotFoundException(notFoundMessage));
         return ResponseEntity.ok(updateAppointment);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteAppointmentById(@PathVariable final Long id) {
         if (!appointmentService.existsById(id)) {

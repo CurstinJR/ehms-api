@@ -6,6 +6,7 @@ import za.ac.cput.entity.contact.Appointment;
 import za.ac.cput.factory.contact.AppointmentFactory;
 import za.ac.cput.repository.contact.AppointmentRepository;
 import za.ac.cput.service.contact.IAppointmentService;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +26,7 @@ public class AppointmentServiceImpl implements IAppointmentService {
     public AppointmentServiceImpl(AppointmentRepository appointmentRepository) {
         this.appointmentRepository = appointmentRepository;
     }
+
     @Override
     public Appointment save(Appointment appointment) {
         return appointmentRepository.save(appointment);
@@ -33,10 +35,10 @@ public class AppointmentServiceImpl implements IAppointmentService {
     @Override
     public Optional<Appointment> update(Long id, Appointment newAppointment) {
         return findById(id).map(appointment -> {
-           String appointmentTime = newAppointment.getAppointmentTime();
-           LocalDate appointmentDate = newAppointment.getAppointmentDate();
-           appointment = AppointmentFactory.createAppointment(id, appointmentTime, appointmentDate);
-           return save(appointment);
+            String appointmentTime = newAppointment.getAppointmentTime();
+            LocalDate appointmentDate = newAppointment.getAppointmentDate();
+            appointment = AppointmentFactory.createAppointment(id, appointmentTime, appointmentDate);
+            return save(appointment);
         });
     }
 

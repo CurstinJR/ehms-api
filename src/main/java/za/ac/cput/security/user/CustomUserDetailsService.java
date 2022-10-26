@@ -5,8 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import za.ac.cput.entity.user.LoginCredentials;
 import za.ac.cput.entity.user.Employee;
+import za.ac.cput.entity.user.LoginCredentials;
 import za.ac.cput.repository.user.EmployeeRepository;
 import za.ac.cput.repository.user.LoginCredentialsRepository;
 
