@@ -29,6 +29,11 @@ spring:
       data-locations: classpath:sql/data-mysql.sql
       mode: always
 
+web:
+  cors:
+    allowed-origins: "http://localhost:4200"
+    allowed-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD
+
 # security log
 logging:
   level:
