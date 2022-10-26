@@ -1,6 +1,7 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.entity.medical.Vitals;
 import za.ac.cput.entity.user.Patient;
 import za.ac.cput.factory.user.PatientFactory;
 
@@ -14,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class PatientFactoryTest {
     @Test
     void createPatientFactoryTest() {
-        Patient patient = PatientFactory.createPatient(1L, "Patient", "Zero");
-
+        Vitals vitals = new Vitals();
+        Patient patient = PatientFactory.createPatient(1L, "Patient", "Zero", vitals);
         assertNotNull(patient);
     }
 }

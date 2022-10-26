@@ -12,19 +12,12 @@ VALUES (1, 'Joe', 'Roe', 1),
        (4, 'Zack', 'Synder', 4),
        (5, 'Ruby', 'Flame', 5);
 
-INSERT INTO patient (`id`, `first_name`, `last_name`)
-VALUES (1, 'Joe', 'Roe'),
-       (2, 'Jack', 'Ross'),
-       (3, 'Sarah', 'Flem'),
-       (4, 'Zack', 'Synder'),
-       (5, 'Ruby', 'Flame');
-
-INSERT INTO vitals (vitals_id, blood_pressure, height, temperature, weight, patient_id)
-    VALUE (1, 'Normal', 165, 37.4, 78.6, 1),
-    (2, 'Normal', 170, 35.4, 80.5, 2),
-    (3, 'Irregular', 172, 35.4, 87.5, 3),
-    (4, 'High', 169, 35.4, 80.5, 4),
-    (5, 'Blood High', 171, 38.4, 74.5, 5);
+INSERT INTO patient (`id`, `first_name`, `last_name`, `blood_pressure`, `height`, `temperature`, `weight`)
+VALUES (1, 'Joe', 'Roe', 'Normal', 165, 37.4, 78.6),
+       (2, 'Jack', 'Ross', 'Normal', 170, 35.4, 80.5),
+       (3, 'Sarah', 'Flem', 'Irregular', 172, 35.4, 87.5),
+       (4, 'Zack', 'Synder', 'High', 169, 35.4, 80.5),
+       (5, 'Ruby', 'Flame', 'Blood High', 171, 38.4, 74.5);
 
 INSERT INTO appointment (appointment_id, appointment_date, appointment_time, patient_id)
     VALUE (1, CURRENT_DATE, CURRENT_TIME, 1),

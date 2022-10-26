@@ -1,4 +1,4 @@
-package za.ac.cput.service.contact.Impl;
+package za.ac.cput.service.contact.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -2,6 +2,7 @@ package za.ac.cput.service.user.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.entity.medical.Vitals;
 import za.ac.cput.entity.user.Patient;
 import za.ac.cput.factory.user.PatientFactory;
 import za.ac.cput.repository.user.PatientRepository;
@@ -30,7 +31,8 @@ public class PatientServiceImpl implements IPatientService {
         return findById(id).map(patient -> {
             String name = newPatient.getFirstName();
             String surname = newPatient.getLastName();
-            patient = PatientFactory.createPatient(id, name, surname);
+            Vitals vitals = newPatient.getVitals();
+            patient = PatientFactory.createPatient(id, name, surname, vitals);
             return save(patient);
         });
     }

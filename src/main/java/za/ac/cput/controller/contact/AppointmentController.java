@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.contact.Appointment;
 import za.ac.cput.exception.ResourceNotFoundException;
-import za.ac.cput.service.contact.Impl.AppointmentServiceImpl;
+import za.ac.cput.service.contact.impl.AppointmentServiceImpl;
 
 import java.util.List;
 
