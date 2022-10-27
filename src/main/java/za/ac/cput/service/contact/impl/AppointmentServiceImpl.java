@@ -3,6 +3,7 @@ package za.ac.cput.service.contact.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.contact.Appointment;
+import za.ac.cput.entity.user.Patient;
 import za.ac.cput.factory.contact.AppointmentFactory;
 import za.ac.cput.repository.contact.AppointmentRepository;
 import za.ac.cput.service.contact.IAppointmentService;
@@ -37,7 +38,8 @@ public class AppointmentServiceImpl implements IAppointmentService {
         return findById(id).map(appointment -> {
             String appointmentTime = newAppointment.getAppointmentTime();
             LocalDate appointmentDate = newAppointment.getAppointmentDate();
-            appointment = AppointmentFactory.createAppointment(id, appointmentTime, appointmentDate);
+            Patient patient = newAppointment.getPatient();
+            appointment = AppointmentFactory.createAppointment(id, appointmentTime, appointmentDate, patient);
             return save(appointment);
         });
     }

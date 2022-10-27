@@ -14,8 +14,6 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import za.ac.cput.security.user.CustomUserDetailsService;
 
-import static org.springframework.http.HttpMethod.GET;
-
 /**
  * @Author Curstin Rose - 220275408
  * WebSecurityConfig.java
@@ -50,8 +48,6 @@ public class WebSecurityConfig {
                 // patients
                 .antMatchers("/api/patients/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "RECEPTIONIST")
                 // employees
-                .antMatchers(GET, "/api/employees/{employeeId}/**", "ADMIN", "NURSE", "DOCTOR", "RECEPTIONIST")
-                .access("@userSecurity.hasUserId(authentication, #employeeId)")
                 .antMatchers("/api/employees/**").hasAnyAuthority("ADMIN")
                 // bills
                 .antMatchers("/api/bills/**").hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONIST")

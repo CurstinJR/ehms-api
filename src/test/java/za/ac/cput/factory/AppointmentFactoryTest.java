@@ -2,6 +2,7 @@ package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.contact.Appointment;
+import za.ac.cput.entity.user.Patient;
 import za.ac.cput.factory.contact.AppointmentFactory;
 
 import java.time.LocalDate;
@@ -18,15 +19,17 @@ class AppointmentFactoryTest {
 
     @Test
     public void addAppointment() {
-        Appointment appointment1 = AppointmentFactory.createAppointment(1L, "15:00", LocalDate.ofEpochDay(21 - 04 - 22));
+        Patient patient = new Patient();
+        Appointment appointment1 = AppointmentFactory.createAppointment(1L, "15:00", LocalDate.ofEpochDay(21 - 04 - 22), patient);
         assertNotNull(appointment1);
         System.out.println("Appointment created");
     }
 
     @Test
     void testEquality() {
-        Appointment appointment1 = AppointmentFactory.createAppointment(2L, "14:00", LocalDate.of(2022, 03, 12));
-        Appointment appointment2 = AppointmentFactory.createAppointment(3L, "14:00", LocalDate.of(2022, 04, 1));
+        Patient patient = new Patient();
+        Appointment appointment1 = AppointmentFactory.createAppointment(2L, "14:00", LocalDate.of(2022, 03, 12), patient);
+        Appointment appointment2 = AppointmentFactory.createAppointment(3L, "14:00", LocalDate.of(2022, 04, 1), patient);
         Appointment appointment3 = appointment1;
 
         assertEquals(appointment1, appointment3);
@@ -35,8 +38,9 @@ class AppointmentFactoryTest {
 
     @Test
     void testIdentity() {
-        Appointment appointment1 = AppointmentFactory.createAppointment(1L, "14:00", LocalDate.of(2022, 3, 12));
-        Appointment appointment2 = AppointmentFactory.createAppointment(2L, "15:00", LocalDate.of(2022, 4, 1));
+        Patient patient = new Patient();
+        Appointment appointment1 = AppointmentFactory.createAppointment(1L, "14:00", LocalDate.of(2022, 3, 12), patient);
+        Appointment appointment2 = AppointmentFactory.createAppointment(2L, "15:00", LocalDate.of(2022, 4, 1), patient);
         Appointment appointment3 = appointment1;
 
         assertSame(appointment1, appointment3);

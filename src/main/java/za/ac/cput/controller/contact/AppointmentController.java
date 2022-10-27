@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import za.ac.cput.api.appointment.AppointmentPatientAPI;
 import za.ac.cput.entity.contact.Appointment;
 import za.ac.cput.exception.ResourceNotFoundException;
 import za.ac.cput.service.contact.impl.AppointmentServiceImpl;
@@ -20,10 +21,13 @@ Date: 6/10/2022
 @RequestMapping("/api/appointments")
 public class AppointmentController {
     private final AppointmentServiceImpl appointmentService;
+    private final AppointmentPatientAPI appointmentPatientAPI;
 
     @Autowired
-    public AppointmentController(AppointmentServiceImpl appointmentService) {
+    public AppointmentController(AppointmentServiceImpl appointmentService,
+                                 AppointmentPatientAPI appointmentPatientAPI) {
         this.appointmentService = appointmentService;
+        this.appointmentPatientAPI = appointmentPatientAPI;
     }
 
     @GetMapping
@@ -42,7 +46,7 @@ public class AppointmentController {
 
     @PostMapping
     public ResponseEntity<Appointment> addAppointment(@RequestBody final Appointment appointment) {
-        Appointment saveAppointment = appointmentService.save(appointment);
+        Appointment saveAppointment = appointmentPatientAPI.saveAppointmentWithPatient(appointment);
         return new ResponseEntity<>(saveAppointment, HttpStatus.CREATED);
     }
 
