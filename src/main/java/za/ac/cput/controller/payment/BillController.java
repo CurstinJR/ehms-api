@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import za.ac.cput.api.payment.BillPatientAPI;
 import za.ac.cput.entity.payment.Bill;
 import za.ac.cput.exception.ResourceNotFoundException;
 import za.ac.cput.service.payment.impl.BillServiceImpl;
@@ -20,10 +21,12 @@ import java.util.List;
 public class BillController {
 
     private final BillServiceImpl billService;
+    private final BillPatientAPI billPatientAPI;
 
     @Autowired
-    public BillController(BillServiceImpl billService) {
+    public BillController(BillServiceImpl billService, BillPatientAPI billPatientAPI) {
         this.billService = billService;
+        this.billPatientAPI = billPatientAPI;
     }
 
     /**
@@ -56,12 +59,12 @@ public class BillController {
     /**
      * Handles the request to create a new Bill object.
      *
-     * @param patient Bill JSON payload
+     * @param bill Bill JSON payload
      * @return 201 and new Bill object
      */
     @PostMapping
-    public ResponseEntity<Bill> addBill(@RequestBody final Bill patient) {
-        Bill saveBill = billService.save(patient);
+    public ResponseEntity<Bill> addBill(@RequestBody final Bill bill) {
+        Bill saveBill = billPatientAPI.saveBillWithPatient(bill);
         return new ResponseEntity<>(saveBill, HttpStatus.CREATED);
     }
 

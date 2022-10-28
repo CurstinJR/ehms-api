@@ -35,10 +35,9 @@ public class BillServiceImpl implements IBillService {
     @Override
     public Optional<Bill> update(Long id, Bill newBill) {
         return findById(id).map(bill -> {
-            BigDecimal billAmount = newBill.getBillAmount();
-            String billDescription = newBill.getBillDescription();
-            LocalDate billDate = newBill.getBillDate();
-            bill = BillFactory.createBill(id, billAmount, billDescription, billDate);
+            BigDecimal billAmount = newBill.getAmount();
+            LocalDate billDate = newBill.getDate();
+            bill = BillFactory.createBill(id, billAmount, billDate);
             return save(bill);
         });
     }

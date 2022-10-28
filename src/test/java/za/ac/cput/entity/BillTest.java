@@ -7,7 +7,8 @@ import za.ac.cput.entity.payment.Bill;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 /**
  * BillTest.java
@@ -20,28 +21,17 @@ class BillTest {
 
     @BeforeEach
     void setUp() {
-        bill1 = new Bill.Builder()
-                .billId(1L)
-                .billAmount(BigDecimal.valueOf(299.99))
-                .billDescription("Bill for patient zero: Bought 1 cough syrup")
-                .billDate(LocalDate.of(2022, 5, 15))
+        bill1 = Bill.builder()
+                .id(1L)
+                .amount(BigDecimal.valueOf(299.99))
+                .date(LocalDate.of(2022, 5, 15))
                 .build();
 
-        bill2 = new Bill.Builder()
-                .billId(2L)
-                .billAmount(BigDecimal.valueOf(199.99))
-                .billDescription("Bill for patient one: Bought 2 cough syrups")
-                .billDate(LocalDate.of(2022, 3, 10))
+        bill2 = Bill.builder()
+                .id(2L)
+                .amount(BigDecimal.valueOf(199.99))
+                .date(LocalDate.of(2022, 3, 10))
                 .build();
-    }
-
-    @Test
-    public void billBuilderTest_shouldEqual() {
-        bill2 = new Bill.Builder()
-                .copy(bill1)
-                .build();
-
-        assertEquals(bill1, bill2);
     }
 
     @Test
@@ -56,35 +46,17 @@ class BillTest {
     }
 
     @Test
-    public void patientBuilderTest_shouldNotBeSame() {
-        bill2 = new Bill.Builder()
-                .copy(bill1)
-                .build();
-
-        assertNotSame(bill1, bill2);
-    }
-
-    @Test
     public void patientBuilderTest_shouldNotEqualHash() {
         for (long i = 0L; i < 100L; i++) {
-            Bill bill1 = new Bill.Builder()
-                    .billId(i)
+            Bill bill1 = Bill.builder()
+                    .id(i)
                     .build();
 
-            Bill bill2 = new Bill.Builder()
-                    .billId(i + 1)
+            Bill bill2 = Bill.builder()
+                    .id(i + 1)
                     .build();
 
             assertNotEquals(bill1.hashCode(), bill2.hashCode());
         }
-    }
-
-    @Test
-    public void patientBuilderTest_shouldEqualHash() {
-        bill2 = new Bill.Builder()
-                .copy(bill1)
-                .build();
-
-        assertEquals(bill1, bill2);
     }
 }
