@@ -48,7 +48,7 @@ public class WebSecurityConfig {
                 // patients
                 .antMatchers("/api/patients/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "RECEPTIONIST")
                 // employees
-                .antMatchers("/api/employees/**").hasAnyAuthority("ADMIN")
+                .antMatchers("/api/employees/**", "/api/roles/**").hasAnyAuthority("ADMIN")
                 // bills
                 .antMatchers("/api/bills/**").hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONIST")
                 .antMatchers("/api/appointments/**").hasAnyAuthority("ADMIN", "DOCTOR", "RECEPTIONIST")
